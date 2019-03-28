@@ -49,7 +49,7 @@ let nameLabel = Prelude.JSON.keyText "app.kubernetes.io/name" name
 let namespace = "datastores"
 
 let metadata =
-          ObjectMeta { name = "kafka-metrics" }
+          ObjectMeta { name = name }
         ⫽ { labels =
               Some
               [ nameLabel

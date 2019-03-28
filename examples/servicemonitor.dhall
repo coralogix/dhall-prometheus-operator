@@ -1,5 +1,4 @@
 -- kafka-service-monitor.dhall
-
 let Prelude =
       https://raw.githubusercontent.com/dhall-lang/dhall-lang/v6.0.0/Prelude/package.dhall sha256:e3be3dba308637ad7ab6d4ce9a11a342b087efbf2aa801c88a05a6babaae8e48
 
@@ -21,15 +20,21 @@ let LabelSelector =
 let LabelSelectorTypes =
       https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/ced5c10af3b80f2053697c8d2b4621044e5e3646/types/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector.dhall sha256:42d27b2708fa26aff105ab514c1d2db674891c9f9cdee0850e0d647435aeddb7
 
+let name = "kafka-metrics"
+
+let nameLabel = Prelude.JSON.keyText "app.kubernetes.io/name" name
+
+let namespace = "datastores"
+
 let metadata =
-          ObjectMeta { name = "kafka-exporter" }
+          ObjectMeta { name = name }
         ⫽ { labels =
               Some
-              [ Prelude.JSON.keyText "app.kubernetes.io/name" "kafka-exporter"
-              , Prelude.JSON.keyText "app.kubernetes.io/part-of" "kafka"
+              [ nameLabel
+              , Prelude.JSON.keyText "app.kubernetes.io/component" "kafka"
               ]
           , namespace =
-              Some "ds"
+              Some namespace
           }
       : ObjectMetaTypes
 
@@ -37,26 +42,18 @@ in      PrometheusOperator.v1.ServiceMonitor
         { spec =
                 PrometheusOperator.v1.ServiceMonitorSpec
                 { selector =
-                        LabelSelector
-                      ⫽ { matchLabels =
-                            Some
-                            [ Prelude.JSON.keyText "name" "kafka-exporter" ]
-                        }
+                      LabelSelector ⫽ { matchLabels = Some [ nameLabel ] }
                     : LabelSelectorTypes
                 , endpoints =
                     [     PrometheusOperator.v1.Endpoint
-                        ⫽ { port =
-                              Some "kafka-exporter"
-                          , interval =
-                              Some "20s"
-                          }
+                        ⫽ { port = Some name, interval = Some "20s" }
                       : PrometheusOperatorTypes.v1.Endpoint
                     ]
                 }
               ⫽ { namespaceSelector =
                     Some
                     (     PrometheusOperator.v1.NamespaceSelector
-                        ⫽ { any = Some True }
+                        ⫽ { matchNames = Some [ namespace ] }
                       : PrometheusOperatorTypes.v1.NamespaceSelector
                     )
                 }
@@ -64,3 +61,5 @@ in      PrometheusOperator.v1.ServiceMonitor
         }
       ⫽ { metadata = Some metadata }
     : PrometheusOperatorTypes.v1.ServiceMonitor
+
+
