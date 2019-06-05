@@ -16,12 +16,14 @@ let StorageSpec = ./StorageSpec.dhall
 
 let ThanosSpec = ./ThanosSpec.dhall
 
+let NamespaceSelector = ./NamespaceSelector.dhall
+
 in    { podMetadata :
           Optional Kubernetes.meta.v1.ObjectMeta
       , serviceMonitorSelector :
           Optional Kubernetes.meta.v1.LabelSelector
       , serviceMonitorNamespaceSelector :
-          Optional Kubernetes.meta.v1.LabelSelector
+          Optional NamespaceSelector
       , version :
           Optional Text
       , tag :
@@ -69,7 +71,7 @@ in    { podMetadata :
       , ruleSelector :
           Optional Kubernetes.meta.v1.LabelSelector
       , ruleNamespaceSelector :
-          Optional Kubernetes.meta.v1.LabelSelector
+          Optional NamespaceSelector
       , alerting :
           Optional AlertingSpec
       , resources :

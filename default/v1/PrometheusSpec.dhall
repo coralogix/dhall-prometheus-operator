@@ -18,12 +18,14 @@ let StorageSpec = ../../types/v1/StorageSpec.dhall
 
 let ThanosSpec = ../../types/v1/ThanosSpec.dhall
 
+let NamespaceSelector = ../../types/v1/NamespaceSelector.dhall
+
 in    { podMetadata =
           None Kubernetes.meta.v1.ObjectMeta
       , serviceMonitorSelector =
           None Kubernetes.meta.v1.LabelSelector
       , serviceMonitorNamespaceSelector =
-          None Kubernetes.meta.v1.LabelSelector
+          None NamespaceSelector
       , version =
           None Text
       , tag =
@@ -71,7 +73,7 @@ in    { podMetadata =
       , ruleSelector =
           None Kubernetes.meta.v1.LabelSelector
       , ruleNamespaceSelector =
-          None Kubernetes.meta.v1.LabelSelector
+          None NamespaceSelector
       , alerting =
           None AlertingSpec
       , resources =
