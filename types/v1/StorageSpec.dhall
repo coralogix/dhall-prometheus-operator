@@ -1,8 +1,10 @@
 let Kubernetes = (../../ImportTypes.dhall).Kubernetes
 
+let VolumeClaimTemplate = ./VolumeClaimTemplate.dhall
+
 in    { emptyDir :
           Optional Kubernetes.core.v1.EmptyDirVolumeSource
       , volumeClaimTemplate :
-          Optional { spec : Kubernetes.core.v1.PersistentVolumeClaimSpec }
+          Optional VolumeClaimTemplate
       }
     : Type

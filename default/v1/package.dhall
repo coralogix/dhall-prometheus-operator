@@ -66,4 +66,8 @@
     ./ThanosSpec.dhall
 , TLSConfig =
     ./TLSConfig.dhall
+, VolumeClaimTemplate =
+    ./VolumeClaimTemplate.dhall
+, VolumeClaimTemplateSpec =
+    ./VolumeClaimTemplateSpec.dhall
 }
