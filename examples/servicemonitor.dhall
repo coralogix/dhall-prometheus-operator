@@ -61,5 +61,3 @@ in      PrometheusOperator.v1.ServiceMonitor
         }
       ⫽ { metadata = Some metadata }
     : PrometheusOperatorTypes.v1.ServiceMonitor
-
-

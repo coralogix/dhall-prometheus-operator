@@ -23,6 +23,8 @@
                 https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/ced5c10af3b80f2053697c8d2b4621044e5e3646/types/io.k8s.api.core.v1.Toleration.dhall sha256:311a6571242358d7b210631d506dc09e89671c2012bee5799c05f0a2c0024d71
             , PersistentVolumeClaim =
                 https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/ced5c10af3b80f2053697c8d2b4621044e5e3646/types/io.k8s.api.core.v1.PersistentVolumeClaim.dhall sha256:d400eb296094ffe392ece227c253808766ae83a2765cc7d0000971b4be9375d5
+            , PersistentVolumeClaimSpec =
+                https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/ced5c10af3b80f2053697c8d2b4621044e5e3646/types/io.k8s.api.core.v1.PersistentVolumeClaimSpec.dhall sha256:43149f4f9d239dc53959679504d6099229cb17b0d39c259945edc627bbde0b5b
             }
         }
     , meta =
