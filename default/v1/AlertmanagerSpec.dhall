@@ -24,6 +24,8 @@ in    { podMetadata =
           None (List Text)
       , logLevel =
           None Text
+      , logFormat =
+          None Text
       , replicas =
           None Natural
       , retention =
