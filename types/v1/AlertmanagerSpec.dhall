@@ -22,6 +22,8 @@ in    { podMetadata :
           Optional (List Text)
       , logLevel :
           Optional Text
+      , logFormat :
+          Optional Text
       , replicas :
           Optional Natural
       , retention :
