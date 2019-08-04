@@ -1,4 +1,4 @@
-let ObjectMeta = (../../ImportTypes.dhall).Kubernetes.meta.v1.ObjectMeta
+let ObjectMeta = (../../ImportTypes.dhall).Kubernetes.ObjectMeta
 
 let AlertmanagerSpec = ./AlertmanagerSpec.dhall
 
@@ -9,7 +9,7 @@ in    { apiVersion :
       , kind :
           Text
       , metadata :
-          Optional ObjectMeta
+          ObjectMeta
       , spec :
           AlertmanagerSpec
       , status :

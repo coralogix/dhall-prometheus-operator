@@ -1,4 +1,4 @@
-let IntOrString = (../../ImportTypes.dhall).Kubernetes.util.IntOrString
+let IntOrString = (../../ImportTypes.dhall).Kubernetes.IntOrString
 
 let TLSConfig = ./TLSConfig.dhall
 

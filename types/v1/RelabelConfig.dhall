@@ -9,7 +9,7 @@
   , separator :
       Optional Text
   , sourceLabels :
-      Optional (List Text)
+      List Text
   , targetLabel :
       Optional Text
   }

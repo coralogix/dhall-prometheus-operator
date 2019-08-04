@@ -1,73 +1,69 @@
-{ AlertingSpec =
-    ./AlertingSpec.dhall
-, Alertmanager =
-    ./Alertmanager.dhall
-, AlertmanagerEndpoints =
-    ./AlertmanagerEndpoints.dhall
-, AlertmanagerList =
-    ./AlertmanagerList.dhall
-, AlertmanagerSpec =
-    ./AlertmanagerSpec.dhall
-, APIServerConfig =
-    ./APIServerConfig.dhall
-, BasicAuth =
-    ./BasicAuth.dhall
-, Endpoint =
-    ./Endpoint.dhall
-, NamespaceSelector =
-    ./NamespaceSelector.dhall
-, Prometheus =
-    ./Prometheus.dhall
-, PrometheusList =
-    ./PrometheusList.dhall
-, PrometheusRule =
-    ./PrometheusRule.dhall
-, PrometheusRuleList =
-    ./PrometheusRuleList.dhall
-, PrometheusRuleSpec =
-    ./PrometheusRuleSpec.dhall
-, PrometheusSpec =
-    ./PrometheusSpec.dhall
-, QuerySpec =
-    ./QuerySpec.dhall
-, QueueConfig =
-    ./QueueConfig.dhall
-, RelabelConfig =
-    ./RelabelConfig.dhall
-, RemoteReadSpec =
-    ./RemoteReadSpec.dhall
-, RemoteWriteSpec =
-    ./RemoteWriteSpec.dhall
-, Rule =
-    ./Rule.dhall
-, Rule-alert =
-    ./Rule-alert.dhall
-, Rule-record =
-    ./Rule-record.dhall
-, RuleGroup =
-    ./RuleGroup.dhall
-, Rules =
-    ./Rules.dhall
-, RulesAlert =
-    ./RulesAlert.dhall
-, ServiceMonitor =
-    ./ServiceMonitor.dhall
-, ServiceMonitorList =
-    ./ServiceMonitorList.dhall
-, ServiceMonitorSpec =
-    ./ServiceMonitorSpec.dhall
-, StorageSpec =
-    ./StorageSpec.dhall
-, ThanosGCSSpec =
-    ./ThanosGCSSpec.dhall
-, ThanosS3Spec =
-    ./ThanosS3Spec.dhall
-, ThanosSpec =
-    ./ThanosSpec.dhall
-, TLSConfig =
-    ./TLSConfig.dhall
-, VolumeClaimTemplate =
-    ./VolumeClaimTemplate.dhall
-, VolumeClaimTemplateSpec =
-    ./VolumeClaimTemplateSpec.dhall
+{ alertingSpec =
+    ./alertingSpec.dhall
+, alertmanager =
+    ./alertmanager.dhall
+, alertmanagerEndpoints =
+    ./alertmanagerEndpoints.dhall
+, alertmanagerList =
+    ./alertmanagerList.dhall
+, alertmanagerSpec =
+    ./alertmanagerSpec.dhall
+, apiServerConfig =
+    ./apiServerConfig.dhall
+, basicAuth =
+    ./basicAuth.dhall
+, endpoint =
+    ./endpoint.dhall
+, namespaceSelector =
+    ./namespaceSelector.dhall
+, prometheus =
+    ./prometheus.dhall
+, prometheusList =
+    ./prometheusList.dhall
+, prometheusRule =
+    ./prometheusRule.dhall
+, prometheusRuleList =
+    ./prometheusRuleList.dhall
+, prometheusRuleSpec =
+    ./prometheusRuleSpec.dhall
+, prometheusSpec =
+    ./prometheusSpec.dhall
+, querySpec =
+    ./querySpec.dhall
+, queueConfig =
+    ./queueConfig.dhall
+, relabelConfig =
+    ./relabelConfig.dhall
+, remoteReadSpec =
+    ./remoteReadSpec.dhall
+, remoteWriteSpec =
+    ./remoteWriteSpec.dhall
+, rule =
+    ./rule.dhall
+, ruleGroup =
+    ./ruleGroup.dhall
+, rules =
+    ./rules.dhall
+, rulesAlert =
+    ./rulesAlert.dhall
+, serviceMonitor =
+    ./serviceMonitor.dhall
+, serviceMonitorList =
+    ./serviceMonitorList.dhall
+, serviceMonitorSpec =
+    ./serviceMonitorSpec.dhall
+, storageSpec =
+    ./storageSpec.dhall
+, thanosGcsSpec =
+    ./thanosGCSSpec.dhall
+, thanosS3Spec =
+    ./thanosS3Spec.dhall
+, thanosSpec =
+    ./thanosSpec.dhall
+, tlsConfig =
+    ./tlsConfig.dhall
+, volumeClaimTemplate =
+    ./volumeClaimTemplate.dhall
+, volumeClaimTemplateSpec =
+    ./volumeClaimTemplateSpec.dhall
 }

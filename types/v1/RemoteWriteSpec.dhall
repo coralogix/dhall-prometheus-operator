@@ -11,7 +11,7 @@ in    { url :
       , remoteTimeout :
           Optional Text
       , writeRelabelConfigs :
-          Optional (List RelabelConfig)
+          List RelabelConfig
       , basicAuth :
           Optional BasicAuth
       , bearerToken :

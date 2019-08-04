@@ -5,9 +5,9 @@ in    { bucket :
       , endpoint :
           Optional Text
       , accessKey :
-          Optional Kubernetes.core.v1.SecretKeySelector
+          Optional Kubernetes.SecretKeySelector
       , secretKey :
-          Optional Kubernetes.core.v1.SecretKeySelector
+          Optional Kubernetes.SecretKeySelector
       , insecure :
           Optional Bool
       , signatureVersion2 :

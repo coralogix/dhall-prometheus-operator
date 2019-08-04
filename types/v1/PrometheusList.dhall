@@ -7,7 +7,7 @@ in    { apiVersion :
       , kind :
           Text
       , metadata :
-          Optional Kubernetes.meta.v1.ListMeta
+          Optional Kubernetes.ListMeta
       , items :
           List Prometheus
       }

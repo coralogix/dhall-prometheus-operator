@@ -1,4 +1,8 @@
-let Kubernetes = (../../ImportTypes.dhall).Kubernetes
+let ImportTypes = ../../ImportTypes.dhall
+
+let Prelude = ImportTypes.Prelude
+
+let Kubernetes = ImportTypes.Kubernetes
 
 let AlertingSpec = ./AlertingSpec.dhall
 
@@ -19,9 +23,9 @@ let ThanosSpec = ./ThanosSpec.dhall
 let NamespaceSelector = ./NamespaceSelector.dhall
 
 in    { podMetadata :
-          Optional Kubernetes.meta.v1.ObjectMeta
+          Optional Kubernetes.ObjectMeta
       , serviceMonitorSelector :
-          Optional Kubernetes.meta.v1.LabelSelector
+          Optional Kubernetes.LabelSelector
       , serviceMonitorNamespaceSelector :
           Optional NamespaceSelector
       , version :
@@ -37,7 +41,7 @@ in    { podMetadata :
       , baseImage :
           Optional Text
       , imagePullSecrets :
-          Optional (List Kubernetes.core.v1.LocalObjectReference)
+          List Kubernetes.LocalObjectReference
       , replicas :
           Optional Natural
       , replicaExternalLabelName :
@@ -57,7 +61,7 @@ in    { podMetadata :
       , rules :
           Optional Rules
       , externalLabels :
-          Optional (List { mapKey : Text, mapValue : Text })
+          Prelude.Map Text Text
       , enableAdminAPI :
           Optional Bool
       , externalUrl :
@@ -69,41 +73,41 @@ in    { podMetadata :
       , storage :
           Optional StorageSpec
       , ruleSelector :
-          Optional Kubernetes.meta.v1.LabelSelector
+          Optional Kubernetes.LabelSelector
       , ruleNamespaceSelector :
           Optional NamespaceSelector
       , alerting :
           Optional AlertingSpec
       , resources :
-          Optional Kubernetes.core.v1.ResourceRequirements
+          Optional Kubernetes.ResourceRequirements
       , nodeSelector :
-          Optional (List { mapKey : Text, mapValue : Text })
+          Prelude.Map Text Text
       , serviceAccountName :
           Optional Text
       , secrets :
-          Optional (List Text)
+          List Text
       , configMaps :
-          Optional (List Text)
+          List Text
       , affinity :
-          Optional Kubernetes.core.v1.Affinity
+          Optional Kubernetes.Affinity
       , tolerations :
-          Optional (List Kubernetes.core.v1.Toleration)
+          List Kubernetes.Toleration
       , remoteWrite :
-          Optional (List RemoteWriteSpec)
+          List RemoteWriteSpec
       , remoteRead :
-          Optional (List RemoteReadSpec)
+          List RemoteReadSpec
       , securityContext :
-          Optional Kubernetes.core.v1.PodSecurityContext
+          Optional Kubernetes.PodSecurityContext
       , listenLocal :
           Optional Bool
       , containers :
-          Optional (List Kubernetes.core.v1.Container)
+          List Kubernetes.Container
       , additionalScrapeConfigs :
-          Optional Kubernetes.core.v1.SecretKeySelector
+          Optional Kubernetes.SecretKeySelector
       , additionalAlertRelabelConfigs :
-          Optional Kubernetes.core.v1.SecretKeySelector
+          Optional Kubernetes.SecretKeySelector
       , additionalAlertManagerConfigs :
-          Optional Kubernetes.core.v1.SecretKeySelector
+          Optional Kubernetes.SecretKeySelector
       , apiserverConfig :
           Optional APIServerConfig
       , thanos :

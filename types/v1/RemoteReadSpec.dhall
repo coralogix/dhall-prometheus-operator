@@ -1,3 +1,5 @@
+let Prelude = (../../ImportTypes.dhall).Prelude
+
 let BasicAuth = ./BasicAuth.dhall
 
 let TLSConfig = ./TLSConfig.dhall
@@ -5,7 +7,7 @@ let TLSConfig = ./TLSConfig.dhall
 in    { url :
           Text
       , requiredMatchers :
-          Optional (List { mapKey : Text, mapValue : Text })
+          Prelude.Map Text Text
       , remoteTimeout :
           Optional Text
       , readRecent :

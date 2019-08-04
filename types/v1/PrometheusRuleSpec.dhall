@@ -1,3 +1,1 @@
-let RuleGroup = ./RuleGroup.dhall
-
-in  { groups : Optional (List RuleGroup) } : Type
+let RuleGroup = ./RuleGroup.dhall in { groups : List RuleGroup } : Type

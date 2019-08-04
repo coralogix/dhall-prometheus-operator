@@ -1,9 +1,13 @@
-let Kubernetes = (../../ImportTypes.dhall).Kubernetes
+let ImportTypes = ../../ImportTypes.dhall
+
+let Prelude = ImportTypes.Prelude
+
+let Kubernetes = ImportTypes.Kubernetes
 
 let StorageSpec = ./StorageSpec.dhall
 
 in    { podMetadata :
-          Optional Kubernetes.meta.v1.ObjectMeta
+          Optional Kubernetes.ObjectMeta
       , image :
           Optional Text
       , version :
@@ -15,11 +19,11 @@ in    { podMetadata :
       , baseImage :
           Optional Text
       , imagePullSecrets :
-          Optional (List Kubernetes.core.v1.LocalObjectReference)
+          List Kubernetes.LocalObjectReference
       , secrets :
-          Optional (List Text)
+          List Text
       , configMaps :
-          Optional (List Text)
+          List Text
       , logLevel :
           Optional Text
       , logFormat :
@@ -37,24 +41,24 @@ in    { podMetadata :
       , paused :
           Optional Bool
       , nodeSelector :
-          Optional (List { mapKey : Text, mapValue : Text })
+          Prelude.Map Text Text
       , resources :
-          Optional Kubernetes.core.v1.ResourceRequirements
+          Optional Kubernetes.ResourceRequirements
       , affinity :
-          Optional Kubernetes.core.v1.Affinity
+          Optional Kubernetes.Affinity
       , tolerations :
-          Optional (List Kubernetes.core.v1.Toleration)
+          List Kubernetes.Toleration
       , securityContext :
-          Optional Kubernetes.core.v1.PodSecurityContext
+          Optional Kubernetes.PodSecurityContext
       , serviceAccountName :
           Optional Text
       , listenLocal :
           Optional Bool
       , containers :
-          Optional (List Kubernetes.core.v1.Container)
+          List Kubernetes.Container
       , priorityClassName :
           Optional Text
       , additionalPeers :
-          Optional (List Text)
+          List Text
       }
     : Type

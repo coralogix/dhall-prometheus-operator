@@ -1,11 +1,11 @@
 let Kubernetes = (../../ImportTypes.dhall).Kubernetes
 
 in    { accessModes :
-          Optional (List Text)
+          List Text
       , resources :
-          Optional Kubernetes.core.v1.ResourceRequirements
+          Optional Kubernetes.ResourceRequirements
       , selector :
-          Optional Kubernetes.meta.v1.LabelSelector
+          Optional Kubernetes.LabelSelector
       , storageClassName :
           Optional Text
       , volumeMode :

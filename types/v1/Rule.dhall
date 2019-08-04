@@ -1,16 +1,20 @@
-let Kubernetes = (../../ImportTypes.dhall).Kubernetes
+let ImportTypes = ../../ImportTypes.dhall
+
+let Prelude = ImportTypes.Prelude
+
+let Kubernetes = ImportTypes.Kubernetes
 
 in    { record :
           Optional Text
       , alert :
           Optional Text
       , expr :
-          Kubernetes.util.IntOrString
+          Kubernetes.IntOrString
       , for :
           Optional Text
       , labels :
-          Optional (List { mapKey : Text, mapValue : Text })
+          Prelude.Map Text Text
       , annotations :
-          Optional (List { mapKey : Text, mapValue : Text })
+          Prelude.Map Text Text
       }
     : Type

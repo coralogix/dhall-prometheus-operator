@@ -1,4 +1,4 @@
-let ListMeta = (../../ImportTypes.dhall).Kubernetes.meta.v1.ListMeta
+let ListMeta = (../../ImportTypes.dhall).Kubernetes.ListMeta
 
 let Alertmanager = ./Alertmanager.dhall
 

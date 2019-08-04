@@ -1,1 +1,1 @@
-{ any : Optional Bool, matchNames : Optional (List Text) } : Type
+< Any : { any : Bool } | MatchNames : { matchNames : List Text } > : Type

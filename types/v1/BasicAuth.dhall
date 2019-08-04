@@ -1,9 +1,3 @@
-let SecretKeySelector =
-      (../../ImportTypes.dhall).Kubernetes.core.v1.SecretKeySelector
+let SecretKeySelector = (../../ImportTypes.dhall).Kubernetes.SecretKeySelector
 
-in    { username :
-          Optional SecretKeySelector
-      , password :
-          Optional SecretKeySelector
-      }
-    : Type
+in  { username : SecretKeySelector, password : SecretKeySelector } : Type

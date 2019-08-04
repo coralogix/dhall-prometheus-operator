@@ -4,7 +4,8 @@ let ThanosGCSSpec = ./ThanosGCSSpec.dhall
 
 let ThanosS3Spec = ./ThanosS3Spec.dhall
 
-in    { peers :
+let Common =
+      { peers :
           Optional Text
       , image :
           Optional Text
@@ -17,16 +18,17 @@ in    { peers :
       , baseImage :
           Optional Text
       , resources :
-          Optional Kubernetes.core.v1.ResourceRequirements
-      , gcs :
-          Optional ThanosGCSSpec
-      , s3 :
-          Optional ThanosS3Spec
+          Optional Kubernetes.ResourceRequirements
       , objectStorageConfig :
-          Optional Kubernetes.core.v1.SecretKeySelector
+          Optional Kubernetes.SecretKeySelector
       , grpcAdvertiseAddress :
           Optional Text
       , clusterAdvertiseAddress :
           Optional Text
       }
-    : Type
+
+in  < S3 :
+        Common ⩓ { s3 : ThanosS3Spec }
+    | GCS :
+        Common ⩓ { gcs : ThanosGCSSpec }
+    >

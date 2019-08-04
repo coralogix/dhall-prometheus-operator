@@ -9,7 +9,7 @@ in    { apiVersion :
       , kind :
           Text
       , metadata :
-          Optional Kubernetes.meta.v1.ObjectMeta
+          Kubernetes.ObjectMeta
       , spec :
           PrometheusSpec
       , status :

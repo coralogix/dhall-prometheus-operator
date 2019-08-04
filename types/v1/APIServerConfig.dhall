@@ -2,15 +2,12 @@ let BasicAuth = ./BasicAuth.dhall
 
 let TLSConfig = ./TLSConfig.dhall
 
-in    { host :
-          Text
-      , basicAuth :
-          Optional BasicAuth
-      , bearerToken :
-          Optional Text
-      , bearerTokenFile :
-          Optional Text
-      , tlsConfig :
-          Optional TLSConfig
-      }
-    : Type
+let Common = { host : Text, tlsConfig : Optional TLSConfig }
+
+in  < BasicAuth :
+        Common ⩓ { basicAuth : BasicAuth }
+    | BearerToken :
+        Common ⩓ { bearerToken : Text }
+    | BearerTokenFile :
+        Common ⩓ { bearerTokenFile : Text }
+    >
