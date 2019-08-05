@@ -55,7 +55,7 @@
 , storageSpec =
     ./storageSpec.dhall
 , thanosGcsSpec =
-    ./thanosGCSSpec.dhall
+    ./thanosGcsSpec.dhall
 , thanosS3Spec =
     ./thanosS3Spec.dhall
 , thanosSpec =

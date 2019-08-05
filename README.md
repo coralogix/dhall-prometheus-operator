@@ -13,8 +13,8 @@ This project relies upon resources provided by the [`dhall-kubernetes`](https://
 ## Install
 For stability, users are encouraged to import from a tagged release, not from the master branch, and to watch for new releases. This project does not yet have rigorous testing set up for it and new commits on the master branch are prone to break compatibility and are almost sure to change the import hash for the expression.
 ```
-https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v2.0.1/default/package.dhall sha256:0ea2693872c782379b6889c5d537d633392c5e6ab3a6129255a95e8bfc940dcc
-https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v2.0.1/types/package.dhall sha256:1405d490989702bcee960da971a11c0fcffac5718f9508ff59f704326be17a9a
+https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v2.0.2/default/package.dhall sha256:0ea2693872c782379b6889c5d537d633392c5e6ab3a6129255a95e8bfc940dcc
+https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v2.0.2/types/package.dhall sha256:1405d490989702bcee960da971a11c0fcffac5718f9508ff59f704326be17a9a
 ```
 
 ## Usage
