@@ -7,5 +7,5 @@ in  { apiVersion =
     , metadata =
         Kubernetes.ObjectMeta
     , spec =
-        ./ServiceMonitorSpec.dhall
+        ./serviceMonitorSpec.dhall
     }

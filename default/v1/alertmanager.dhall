@@ -9,7 +9,7 @@ in  { apiVersion =
     , metadata =
         ObjectMeta
     , spec =
-        ./AlertmanagerSpec.dhall
+        ./alertmanagerSpec.dhall
     , status =
         None AlertmanagerStatus
     }

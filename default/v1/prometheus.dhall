@@ -11,7 +11,7 @@ in  { apiVersion =
     , metadata =
         Kubernetes.ObjectMeta
     , spec =
-        ./PrometheusSpec.dhall
+        ./prometheusSpec.dhall
     , status =
         None PrometheusStatus
     }
