@@ -139,29 +139,12 @@ in  { alertingSpec =
                 ∧ { spec = defaults.volumeClaimTemplateSpec }
             }
         }
-    , thanosGcsSpec =
-            defaults.thanosGcsSpec
-          ∧ { credentials =
+    , thanosSpec =
+            defaults.thanosSpec
+          ∧ { objectStorageConfig =
                 kubernetes.SecretKeySelector ∧ { key = "example-key" }
             }
-        : Types.ThanosGCSSpec
-    , thanosS3Spec =
-        defaults.thanosS3Spec : Types.ThanosS3Spec
-    , thanosSpec =
-        { s3 =
-            Types.ThanosSpec.S3
-            (defaults.thanosSpec ∧ { s3 = defaults.thanosS3Spec })
-        , gcs =
-            Types.ThanosSpec.GCS
-            (   defaults.thanosSpec
-              ∧ { gcs =
-                      defaults.thanosGcsSpec
-                    ∧ { credentials =
-                          kubernetes.SecretKeySelector ∧ { key = "example-key" }
-                      }
-                }
-            )
-        }
+        : Types.ThanosSpec
     , tlsConfig =
         defaults.tlsConfig : Types.TLSConfig
     , volumeClaimTemplate =

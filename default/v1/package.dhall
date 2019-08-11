@@ -54,10 +54,6 @@
     ./serviceMonitorSpec.dhall
 , storageSpec =
     ./storageSpec.dhall
-, thanosGcsSpec =
-    ./thanosGcsSpec.dhall
-, thanosS3Spec =
-    ./thanosS3Spec.dhall
 , thanosSpec =
     ./thanosSpec.dhall
 , tlsConfig =
