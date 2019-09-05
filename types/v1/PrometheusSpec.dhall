@@ -28,6 +28,10 @@ in    { podMetadata :
           Optional Kubernetes.LabelSelector
       , serviceMonitorNamespaceSelector :
           Optional NamespaceSelector
+      , podMonitorSelector :
+          Optional Kubernetes.LabelSelector
+      , podMonitorNamespaceSelector :
+          Optional Kubernetes.LabelSelector
       , version :
           Optional Text
       , tag :
@@ -50,6 +54,10 @@ in    { podMetadata :
           Optional Text
       , retention :
           Optional Text
+      , retentionSize :
+          Optional Text
+      , walCompression :
+          Optional Bool
       , logLevel :
           Optional Text
       , logFormat :
@@ -72,6 +80,8 @@ in    { podMetadata :
           Optional QuerySpec
       , storage :
           Optional StorageSpec
+      , volumes :
+          List Kubernetes.Volume
       , ruleSelector :
           Optional Kubernetes.LabelSelector
       , ruleNamespaceSelector :
@@ -102,6 +112,8 @@ in    { podMetadata :
           Optional Bool
       , containers :
           List Kubernetes.Container
+      , initContainers :
+          List Kubernetes.Container
       , additionalScrapeConfigs :
           Optional Kubernetes.SecretKeySelector
       , additionalAlertRelabelConfigs :
@@ -113,6 +125,8 @@ in    { podMetadata :
       , thanos :
           Optional ThanosSpec
       , priorityClassName :
+          Optional Text
+      , portName :
           Optional Text
       }
     : Type

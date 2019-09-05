@@ -30,6 +30,10 @@ in    { podMetadata =
           None Kubernetes.LabelSelector
       , serviceMonitorNamespaceSelector =
           None NamespaceSelector
+      , podMonitorSelector =
+          None Kubernetes.LabelSelector
+      , podMonitorNamespaceSelector =
+          None Kubernetes.LabelSelector
       , version =
           None Text
       , tag =
@@ -52,6 +56,10 @@ in    { podMetadata =
           None Text
       , retention =
           None Text
+      , retentionSize =
+          None Text
+      , walCompression =
+          None Bool
       , logLevel =
           None Text
       , logFormat =
@@ -74,6 +82,8 @@ in    { podMetadata =
           None QuerySpec
       , storage =
           None StorageSpec
+      , volumes =
+          [] : List Kubernetes.Volume
       , ruleSelector =
           None Kubernetes.LabelSelector
       , ruleNamespaceSelector =
@@ -104,6 +114,8 @@ in    { podMetadata =
           None Bool
       , containers =
           [] : List Kubernetes.Container
+      , initContainers =
+          [] : List Kubernetes.Container
       , additionalScrapeConfigs =
           None Kubernetes.SecretKeySelector
       , additionalAlertRelabelConfigs =
@@ -115,6 +127,8 @@ in    { podMetadata =
       , thanos =
           None ThanosSpec
       , priorityClassName =
+          None Text
+      , portName =
           None Text
       }
     : PrometheusSpec
