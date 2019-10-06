@@ -4,5 +4,7 @@
       Optional Natural
   , timeout :
       Optional Text
+  , maxSamples :
+      Optional Natural
   }
 : Type
