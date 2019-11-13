@@ -1,156 +1,134 @@
-let Kubernetes = (../ImportTypes.dhall).Kubernetes
+let Kubernetes = (../imports.dhall).Kubernetes.Type
 
-let kubernetes = (../Imports.dhall).Kubernetes
+let kubernetes = (../imports.dhall).Kubernetes.default
 
-let Types = ../types/v1/package.dhall
+let PrometheusOperator = (../package.dhall).v1
 
-let defaults = ../default/v1/package.dhall
-
-in  { alertingSpec =
-        defaults.alertingSpec : Types.AlertingSpec
+in  { alertingSpec = PrometheusOperator.AlertingSpec::{=}
     , alertmanager =
-            defaults.alertmanager
-          ⫽ { metadata = defaults.alertmanager.metadata ⫽ { name = "example" } }
-        : Types.Alertmanager
+        PrometheusOperator.Alertmanager::{
+        , metadata = kubernetes.ObjectMeta ⫽ { name = "example" }
+        }
     , alertmanagerEndpoints =
-            defaults.alertmanagerEndpoints
-          ∧ { namespace =
-                "default"
-            , name =
-                "example"
-            , port =
-                Kubernetes.IntOrString.String "example"
-            }
-        : Types.AlertmanagerEndpoints
-    , alertmanagerList =
-        defaults.alertmanagerList : Types.AlertmanagerList
-    , alertmanagerSpec =
-        defaults.alertmanagerSpec : Types.AlertmanagerSpec
+        PrometheusOperator.AlertmanagerEndpoints::{
+        , namespace = "default"
+        , name = "example"
+        , port = Kubernetes.IntOrString.String "example"
+        }
+    , alertmanagerList = PrometheusOperator.AlertmanagerList::{=}
+    , alertmanagerSpec = PrometheusOperator.AlertmanagerSpec::{=}
     , apiServerConfig =
         { basicAuth =
-            Types.APIServerConfig.BasicAuth
-            (   defaults.apiServerConfig
-              ∧ { host =
-                    "example.com"
-                , basicAuth =
-                      defaults.basicAuth
-                    ∧ { username =
-                            kubernetes.SecretKeySelector
-                          ∧ { key = "example-username-key" }
-                      , password =
-                            kubernetes.SecretKeySelector
-                          ∧ { key = "example-password-key" }
-                      }
-                }
-            )
+            PrometheusOperator.APIServerConfig.Union.BasicAuth
+              PrometheusOperator.APIServerConfig.BasicAuth::{
+              , host = "example.com"
+              , basicAuth =
+                  PrometheusOperator.BasicAuth::{
+                  , username =
+                        kubernetes.SecretKeySelector
+                      ∧ { key = "example-username-key" }
+                  , password =
+                        kubernetes.SecretKeySelector
+                      ∧ { key = "example-password-key" }
+                  }
+              }
         , bearerToken =
-            Types.APIServerConfig.BearerToken
-            (   defaults.apiServerConfig
-              ∧ { host = "example.com", bearerToken = "example" }
-            )
+            PrometheusOperator.APIServerConfig.Union.BearerToken
+              PrometheusOperator.APIServerConfig.BearerToken::{
+              , host = "example.com"
+              , bearerToken = "example"
+              }
         , bearerTokenFile =
-            Types.APIServerConfig.BearerTokenFile
-            (   defaults.apiServerConfig
-              ∧ { host = "example.com", bearerTokenFile = "path/to/example" }
-            )
+            PrometheusOperator.APIServerConfig.Union.BearerTokenFile
+              PrometheusOperator.APIServerConfig.BearerTokenFile::{
+              , host = "example.com"
+              , bearerTokenFile = "path/to/example"
+              }
         }
     , basicAuth =
-            defaults.basicAuth
-          ∧ { username =
-                kubernetes.SecretKeySelector ∧ { key = "example-username-key" }
-            , password =
-                kubernetes.SecretKeySelector ∧ { key = "example-password-key" }
-            }
-        : Types.BasicAuth
+        PrometheusOperator.BasicAuth::{
+        , username =
+            kubernetes.SecretKeySelector ∧ { key = "example-username-key" }
+        , password =
+            kubernetes.SecretKeySelector ∧ { key = "example-password-key" }
+        }
     , endpoint =
         { port =
-            Types.Endpoint.Port (defaults.endpoint ∧ { port = "example-port" })
+            PrometheusOperator.Endpoint.Union.Port
+              PrometheusOperator.Endpoint.Port::{ port = "example-port" }
         , targetPort =
-            Types.Endpoint.TargetPort
-            (   defaults.endpoint
-              ∧ { targetPort = Kubernetes.IntOrString.Int 8080 }
-            )
+            PrometheusOperator.Endpoint.Union.TargetPort
+              PrometheusOperator.Endpoint.TargetPort::{
+              , targetPort = Kubernetes.IntOrString.Int 8080
+              }
         }
     , namespaceSelector =
-        { any =
-            Types.NamespaceSelector.Any { any = True }
+        { any = PrometheusOperator.NamespaceSelector.Any { any = True }
         , matchNames =
-            Types.NamespaceSelector.MatchNames
-            { matchNames = [ "example-name" ] }
+            PrometheusOperator.NamespaceSelector.MatchNames
+              { matchNames = [ "example-name" ] }
         }
     , prometheus =
-            defaults.prometheus
-          ⫽ { metadata = defaults.prometheus.metadata ∧ { name = "example" } }
-        : Types.Prometheus
-    , prometheusList =
-        defaults.prometheusList : Types.PrometheusList
+        PrometheusOperator.Prometheus::{
+        , metadata = kubernetes.ObjectMeta ⫽ { name = "example" }
+        }
+    , prometheusList = PrometheusOperator.PrometheusList::{=}
     , prometheusRule =
-            defaults.prometheusRule
-          ⫽ { metadata = defaults.prometheus.metadata ∧ { name = "example" } }
-        : Types.PrometheusRule
-    , prometheusRuleList =
-        defaults.prometheusRuleList : Types.PrometheusRuleList
-    , prometheusRuleSpec =
-        defaults.prometheusRuleSpec : Types.PrometheusRuleSpec
-    , prometheusSpec =
-        defaults.prometheusSpec : Types.PrometheusSpec
-    , querySpec =
-        defaults.querySpec : Types.QuerySpec
-    , queueConfig =
-        defaults.queueConfig : Types.QueueConfig
-    , relabelConfig =
-        defaults.relabelConfig : Types.RelabelConfig
+        PrometheusOperator.PrometheusRule::{
+        , metadata = kubernetes.ObjectMeta ⫽ { name = "example" }
+        }
+    , prometheusRuleList = PrometheusOperator.PrometheusRuleList::{=}
+    , prometheusRuleSpec = PrometheusOperator.PrometheusRuleSpec::{=}
+    , prometheusSpec = PrometheusOperator.PrometheusSpec::{=}
+    , querySpec = PrometheusOperator.QuerySpec::{=}
+    , queueConfig = PrometheusOperator.QueueConfig::{=}
+    , relabelConfig = PrometheusOperator.RelabelConfig::{=}
     , remoteReadSpec =
-        defaults.remoteReadSpec ∧ { url = "example.com" } : Types.RemoteReadSpec
+        PrometheusOperator.RemoteReadSpec::{ url = "example.com" }
     , remoteWriteSpec =
-          defaults.remoteWriteSpec ∧ { url = "example.com" }
-        : Types.RemoteWriteSpec
+        PrometheusOperator.RemoteWriteSpec::{ url = "example.com" }
     , rule =
-          defaults.rule ∧ { expr = Kubernetes.IntOrString.String "example" }
-        : Types.Rule
-    , ruleGroup =
-        defaults.ruleGroup ∧ { name = "example" } : Types.RuleGroup
+        PrometheusOperator.Rule::{
+        , expr = Kubernetes.IntOrString.String "example"
+        }
+    , ruleGroup = PrometheusOperator.RuleGroup::{ name = "example" }
     , rules =
-        defaults.rules ∧ { alert = defaults.rulesAlert } : Types.Rules
-    , rulesAlert =
-        defaults.rulesAlert : Types.RulesAlert
+        PrometheusOperator.Rules::{ alert = PrometheusOperator.RulesAlert::{=} }
+    , rulesAlert = PrometheusOperator.RulesAlert::{=}
     , serviceMonitor =
-            defaults.serviceMonitor
-          ⫽ { metadata =
-                defaults.serviceMonitor.metadata ∧ { name = "example" }
-            , spec =
-                  defaults.serviceMonitor.spec
-                ∧ { selector = kubernetes.LabelSelector }
-            }
-        : Types.ServiceMonitor
-    , serviceMonitorList =
-        defaults.serviceMonitorList : Types.ServiceMonitorList
-    , serviceMonitorSpec =
-          defaults.serviceMonitorSpec ∧ { selector = kubernetes.LabelSelector }
-        : Types.ServiceMonitorSpec
-    , storageSpec =
-        { emptyDir =
-            Types.StorageSpec.EmptyDir
-            { emptyDir = kubernetes.EmptyDirVolumeSource }
-        , volumeClaimTemplate =
-            Types.StorageSpec.VolumeClaimTemplate
-            { volumeClaimTemplate =
-                  defaults.volumeClaimTemplate
-                ∧ { spec = defaults.volumeClaimTemplateSpec }
+        PrometheusOperator.ServiceMonitor::{
+        , metadata = kubernetes.ObjectMeta ⫽ { name = "example" }
+        , spec =
+            PrometheusOperator.ServiceMonitorSpec::{
+            , selector = kubernetes.LabelSelector
             }
         }
+    , serviceMonitorList = PrometheusOperator.ServiceMonitorList::{=}
+    , serviceMonitorSpec =
+        PrometheusOperator.ServiceMonitorSpec::{
+        , selector = kubernetes.LabelSelector
+        }
+    , storageSpec =
+        { emptyDir =
+            PrometheusOperator.StorageSpec.EmptyDir
+              { emptyDir = kubernetes.EmptyDirVolumeSource }
+        , volumeClaimTemplate =
+            PrometheusOperator.StorageSpec.VolumeClaimTemplate
+              { volumeClaimTemplate =
+                  PrometheusOperator.VolumeClaimTemplate::{
+                  , spec = PrometheusOperator.VolumeClaimTemplateSpec::{=}
+                  }
+              }
+        }
     , thanosSpec =
-            defaults.thanosSpec
-          ∧ { objectStorageConfig =
-                kubernetes.SecretKeySelector ∧ { key = "example-key" }
-            }
-        : Types.ThanosSpec
-    , tlsConfig =
-        defaults.tlsConfig : Types.TLSConfig
+        PrometheusOperator.ThanosSpec::{
+        , objectStorageConfig =
+            kubernetes.SecretKeySelector ∧ { key = "example-key" }
+        }
+    , tlsConfig = PrometheusOperator.TLSConfig::{=}
     , volumeClaimTemplate =
-            defaults.volumeClaimTemplate
-          ∧ { spec = defaults.volumeClaimTemplateSpec }
-        : Types.VolumeClaimTemplate
-    , volumeClaimTemplateSpec =
-        defaults.volumeClaimTemplateSpec : Types.VolumeClaimTemplateSpec
+        PrometheusOperator.VolumeClaimTemplate::{
+        , spec = PrometheusOperator.VolumeClaimTemplateSpec::{=}
+        }
+    , volumeClaimTemplateSpec = PrometheusOperator.VolumeClaimTemplateSpec::{=}
     }
