@@ -1,3 +1,8 @@
 let VolumeClaimTemplateSpec = ./VolumeClaimTemplateSpec.dhall
 
-in  { Type = { spec : VolumeClaimTemplateSpec.Type }, default = {=} }
+let VolumeClaimTemplate =
+      { Type = { spec : VolumeClaimTemplateSpec.Type }, default = {=} }
+
+let test = VolumeClaimTemplate::{ spec = VolumeClaimTemplateSpec::{=} }
+
+in  VolumeClaimTemplate

@@ -1,5 +1,10 @@
 let RuleGroup = ./RuleGroup.dhall
 
-in  { Type = { groups : List RuleGroup.Type }
-    , default = { groups = [] : List RuleGroup.Type }
-    }
+let PrometheusRuleSpec =
+      { Type = { groups : List RuleGroup.Type }
+      , default = { groups = [] : List RuleGroup.Type }
+      }
+
+let test = PrometheusRuleSpec::{=}
+
+in  PrometheusRuleSpec

@@ -12,12 +12,48 @@ let BearerTokenFile = Common ⩓ { bearerTokenFile : Text }
 
 let common = { tlsConfig = None TLSConfig.Type }
 
-in  { Union =
-        < BasicAuth : BasicAuth
-        | BearerToken : BearerToken
-        | BearerTokenFile : BearerTokenFile
-        >
-    , BasicAuth = { Type = BasicAuth, default = common }
-    , BearerToken = { Type = BearerToken, default = common }
-    , BearerTokenFile = { Type = BearerTokenFile, default = common }
-    }
+let APIServerConfig =
+      { Union =
+          < BasicAuth : BasicAuth
+          | BearerToken : BearerToken
+          | BearerTokenFile : BearerTokenFile
+          >
+      , BasicAuth = { Type = BasicAuth, default = common }
+      , BearerToken = { Type = BearerToken, default = common }
+      , BearerTokenFile = { Type = BearerTokenFile, default = common }
+      }
+
+let test =
+      let kubernetes = (../imports.dhall).Kubernetes.default
+      
+      let BasicAuth = ./BasicAuth.dhall
+      
+      in  { basicAuth =
+              APIServerConfig.Union.BasicAuth
+                APIServerConfig.BasicAuth::{
+                , host = "example.com"
+                , basicAuth =
+                    BasicAuth::{
+                    , username =
+                          kubernetes.SecretKeySelector
+                        ∧ { key = "example-username-key" }
+                    , password =
+                          kubernetes.SecretKeySelector
+                        ∧ { key = "example-password-key" }
+                    }
+                }
+          , bearerToken =
+              APIServerConfig.Union.BearerToken
+                APIServerConfig.BearerToken::{
+                , host = "example.com"
+                , bearerToken = "example"
+                }
+          , bearerTokenFile =
+              APIServerConfig.Union.BearerTokenFile
+                APIServerConfig.BearerTokenFile::{
+                , host = "example.com"
+                , bearerTokenFile = "path/to/example"
+                }
+          }
+
+in  APIServerConfig

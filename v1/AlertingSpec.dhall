@@ -1,5 +1,10 @@
 let AlertmanagerEndpoints = ./AlertmanagerEndpoints.dhall
 
-in  { Type = { alertmanagers : List AlertmanagerEndpoints.Type }
-    , default = { alertmanagers = [] : List AlertmanagerEndpoints.Type }
-    }
+let AlertingSpec =
+      { Type = { alertmanagers : List AlertmanagerEndpoints.Type }
+      , default = { alertmanagers = [] : List AlertmanagerEndpoints.Type }
+      }
+
+let test = AlertingSpec::{=}
+
+in  AlertingSpec

@@ -1,6 +1,6 @@
 let imports = ../imports.dhall
 
-let Map = imports.Prelude.Map
+let Map = imports.Prelude.Map.Type
 
 let Kubernetes = imports.Kubernetes.Type
 
@@ -18,7 +18,9 @@ let Common =
         , scrapeTimeout : Optional Text
         , tlsConfig : Optional TLSConfig.Type
         , bearerTokenFile : Optional Text
+        , bearerTokenSecret : Optional Kubernetes.SecretKeySelector
         , honorLabels : Optional Bool
+        , honorTimestamps : Optional Bool
         , basicAuth : Optional BasicAuth.Type
         , metricRelabelings : List RelabelConfig.Type
         , relabelings : List RelabelConfig.Type
@@ -34,7 +36,9 @@ let common =
       , scrapeTimeout = None Text
       , tlsConfig = None TLSConfig.Type
       , bearerTokenFile = None Text
+      , bearerTokenSecret = None Kubernetes.SecretKeySelector
       , honorLabels = None Bool
+      , honorTimestamps = None Bool
       , basicAuth = None BasicAuth.Type
       , metricRelabelings = [] : List RelabelConfig.Type
       , relabelings = [] : List RelabelConfig.Type
@@ -45,7 +49,19 @@ let Port = Common ⩓ { port : Text }
 
 let TargetPort = Common ⩓ { targetPort : Kubernetes.IntOrString }
 
-in  { Union = < Port : Port | TargetPort : TargetPort >
-    , Port = { Type = Port, default = common }
-    , TargetPort = { Type = TargetPort, default = common }
-    }
+let Endpoint =
+      { Union = < Port : Port | TargetPort : TargetPort >
+      , Port = { Type = Port, default = common }
+      , TargetPort = { Type = TargetPort, default = common }
+      }
+
+let test =
+      { port = Endpoint.Union.Port Endpoint.Port::{ port = "example-port" }
+      , targetPort =
+          Endpoint.Union.TargetPort
+            Endpoint.TargetPort::{
+            , targetPort = Kubernetes.IntOrString.Int 8080
+            }
+      }
+
+in  Endpoint

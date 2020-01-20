@@ -1,3 +1,7 @@
 let RulesAlert = ./RulesAlert.dhall
 
-in  { Type = { alert : RulesAlert.Type }, default = {=} }
+let Rules = { Type = { alert : RulesAlert.Type }, default = {=} }
+
+let test = Rules::{ alert = RulesAlert::{=} }
+
+in  Rules
