@@ -20,11 +20,12 @@ https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.0/pac
 ### Example ServiceMonitor
 ```dhall
 let kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/4ad58156b7fdbbb6da0543d8b314df899feca077/defaults.dhall sha256:4450e23dc81975d111650e06c0238862944bf699537af6cbacac9c7e471dfabe
+
 let Kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/4ad58156b7fdbbb6da0543d8b314df899feca077/types.dhall sha256:e48e21b807dad217a6c3e631fcaf3e950062310bfb4a8bbcecc330eb7b2f60ed
 
-let PrometheusOperator = (https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.0/package.dhall).v1 sha256:fca0c036575706b102a4e32d1644d12dda057ae40c3d9b3f37ad45346917b14d
+let PrometheusOperator = (https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.0/package.dhall sha256:fca0c036575706b102a4e32d1644d12dda057ae40c3d9b3f37ad45346917b14d).v1
 
-in PromethesOperator.ServiceMonitor::{
+in PrometheusOperator.ServiceMonitor::{
    , metadata =
          kubernetes.ObjectMeta // { name = "example" }
    , spec =
@@ -35,8 +36,8 @@ in PromethesOperator.ServiceMonitor::{
                 toMap { app = "example" }
              }
        , endpoints =
-         [ Prometheus.Endpoint.Union.TargetPort
-             Prometheus.Endpoint.TargetPort::{
+         [ PrometheusOperator.Endpoint.Union.TargetPort
+             PrometheusOperator.Endpoint.TargetPort::{
              , targetPort = Kubernetes.IntOrString.String "example"
              , interval = Some "60s"
              , scrapeTimeout = Some "40s"
@@ -44,7 +45,7 @@ in PromethesOperator.ServiceMonitor::{
          ]
        , namespaceSelector =
            Some
-             ( Prometheus.NamespaceSelector.Any { any = True }
+             ( PrometheusOperator.NamespaceSelector.Any { any = True }
              )
        }
    }
