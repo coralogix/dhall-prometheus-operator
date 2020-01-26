@@ -13,7 +13,7 @@ This project relies upon resources provided by the [`dhall-kubernetes`](https://
 ## Install
 For stability, users are encouraged to import from a tagged release, not from the master branch, and to watch for new releases. This project does not yet have rigorous testing set up for it and new commits on the master branch are prone to break compatibility and are almost sure to change the import hash for the expression.
 ```
-https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.0/package.dhall sha256:fca0c036575706b102a4e32d1644d12dda057ae40c3d9b3f37ad45346917b14d
+https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.1/package.dhall sha256:1160d4c0f3d0f4750dd1644b2ba8351b197ebad4b1f577b42e7ae590f4706726
 ```
 
 ## Example Usage
@@ -23,7 +23,7 @@ let kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/4
 
 let Kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/4ad58156b7fdbbb6da0543d8b314df899feca077/types.dhall sha256:e48e21b807dad217a6c3e631fcaf3e950062310bfb4a8bbcecc330eb7b2f60ed
 
-let PrometheusOperator = (https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.0/package.dhall sha256:fca0c036575706b102a4e32d1644d12dda057ae40c3d9b3f37ad45346917b14d).v1
+let PrometheusOperator = (https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.1/package.dhall sha256:1160d4c0f3d0f4750dd1644b2ba8351b197ebad4b1f577b42e7ae590f4706726).v1
 
 in PrometheusOperator.ServiceMonitor::{
    , metadata =

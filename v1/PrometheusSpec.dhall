@@ -29,7 +29,7 @@ let PrometheusSpec =
       { Type =
           { podMetadata : Optional Kubernetes.ObjectMeta
           , serviceMonitorSelector : Optional Kubernetes.LabelSelector
-          , serviceMonitorNamespaceSelector : Optional NamespaceSelector
+          , serviceMonitorNamespaceSelector : Optional Kubernetes.LabelSelector
           , podMonitorSelector : Optional Kubernetes.LabelSelector
           , podMonitorNamespaceSelector : Optional Kubernetes.LabelSelector
           , version : Optional Text
@@ -59,7 +59,7 @@ let PrometheusSpec =
           , storage : Optional StorageSpec
           , volumes : List Kubernetes.Volume
           , ruleSelector : Optional Kubernetes.LabelSelector
-          , ruleNamespaceSelector : Optional NamespaceSelector
+          , ruleNamespaceSelector : Optional Kubernetes.LabelSelector
           , alerting : Optional AlertingSpec.Type
           , resources : Optional Kubernetes.ResourceRequirements
           , nodeSelector : Map Text Text
@@ -93,7 +93,7 @@ let PrometheusSpec =
       , default =
           { podMetadata = None Kubernetes.ObjectMeta
           , serviceMonitorSelector = None Kubernetes.LabelSelector
-          , serviceMonitorNamespaceSelector = None NamespaceSelector
+          , serviceMonitorNamespaceSelector = None Kubernetes.LabelSelector
           , podMonitorSelector = None Kubernetes.LabelSelector
           , podMonitorNamespaceSelector = None Kubernetes.LabelSelector
           , version = None Text
@@ -123,7 +123,7 @@ let PrometheusSpec =
           , storage = None StorageSpec
           , volumes = [] : List Kubernetes.Volume
           , ruleSelector = None Kubernetes.LabelSelector
-          , ruleNamespaceSelector = None NamespaceSelector
+          , ruleNamespaceSelector = None Kubernetes.LabelSelector
           , alerting = None AlertingSpec.Type
           , resources = None Kubernetes.ResourceRequirements
           , nodeSelector = [] : Map Text Text
