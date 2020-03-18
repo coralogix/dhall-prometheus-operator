@@ -1,17 +1,27 @@
-let Kubernetes = (../imports.dhall).Kubernetes.Type
+let Kubernetes = (../imports.dhall).Kubernetes
+
+let PodMetricsEndpoint = ./PodMetricsEndpoint.dhall
 
 let PodMonitorSpec = ./PodMonitorSpec.dhall
 
-in  { Type =
-        { apiVersion : Text
-        , kind : Text
-        , metadata : Kubernetes.ObjectMeta
-        , spec : PodMonitorSpec.Type
+let PodMonitor =
+      { Type =
+          { apiVersion : Text
+          , kind : Text
+          , metadata : Kubernetes.ObjectMeta.Type
+          , spec : PodMonitorSpec.Type
+          }
+      , default =
+          { apiVersion = "monitoring.coreos.com/v1", kind = "PodMonitor" }
+      }
+
+let test =
+      PodMonitor::{
+      , metadata = Kubernetes.ObjectMeta::{ name = "example" }
+      , spec = PodMonitorSpec::{
+        , podMetricsEndpoints = [ PodMetricsEndpoint::{=} ]
+        , selector = Kubernetes.LabelSelector::{=}
         }
-    , default =
-        { apiVersion = "monitoring.coreos.com/v1"
-        , kind = "PodMonitor"
-        , metadata = Kubernetes.ObjectMeta
-        , spec = PodMonitorSpec.default
-        }
-    }
+      }
+
+in  PodMonitor

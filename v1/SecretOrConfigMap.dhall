@@ -1,10 +1,10 @@
 let imports = ../imports.dhall
 
-let Kubernetes = imports.Kubernetes.Type
+let Kubernetes = imports.Kubernetes
 
 let SecretOrConfigMap =
-      < Secret : Kubernetes.SecretKeySelector
-      | ConfigMap : Kubernetes.ConfigMapKeySelector
+      < Secret : Kubernetes.SecretKeySelector.Type
+      | ConfigMap : Kubernetes.ConfigMapKeySelector.Type
       >
 
 in  { Type = SecretOrConfigMap

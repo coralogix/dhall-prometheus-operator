@@ -1,4 +1,4 @@
-let Kubernetes = (../imports.dhall).Kubernetes.Type
+let Kubernetes = (../imports.dhall).Kubernetes
 
 let ThanosSpec =
       { Type =
@@ -7,8 +7,8 @@ let ThanosSpec =
           , tag : Optional Text
           , sha : Optional Text
           , baseImage : Optional Text
-          , resources : Optional Kubernetes.ResourceRequirements
-          , objectStorageConfig : Optional Kubernetes.SecretKeySelector
+          , resources : Optional Kubernetes.ResourceRequirements.Type
+          , objectStorageConfig : Optional Kubernetes.SecretKeySelector.Type
           , listenLocal : Optional Bool
           }
       , default =
@@ -17,8 +17,8 @@ let ThanosSpec =
           , tag = None Text
           , sha = None Text
           , baseImage = None Text
-          , resources = None Kubernetes.ResourceRequirements
-          , objectStorageConfig = None Kubernetes.SecretKeySelector
+          , resources = None Kubernetes.ResourceRequirements.Type
+          , objectStorageConfig = None Kubernetes.SecretKeySelector.Type
           , listenLocal = None Bool
           }
       }

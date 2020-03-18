@@ -1,6 +1,6 @@
 let imports = ../imports.dhall
 
-let Kubernetes = imports.Kubernetes.Type
+let Kubernetes = imports.Kubernetes
 
 let SecretOrConfigMap = ./SecretOrConfigMap.dhall
 
@@ -11,7 +11,7 @@ let TLSConfig =
           , certFile : Optional Text
           , cert : Optional SecretOrConfigMap.Type
           , keyFile : Optional Text
-          , keySecret : Optional Kubernetes.SecretKeySelector
+          , keySecret : Optional Kubernetes.SecretKeySelector.Type
           , serverName : Optional Text
           , insecureSkipVerify : Optional Bool
           }
@@ -21,7 +21,7 @@ let TLSConfig =
           , certFile = None Text
           , cert = None SecretOrConfigMap.Type
           , keyFile = None Text
-          , keySecret = None Kubernetes.SecretKeySelector
+          , keySecret = None Kubernetes.SecretKeySelector.Type
           , serverName = None Text
           , insecureSkipVerify = None Bool
           }

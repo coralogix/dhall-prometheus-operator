@@ -2,8 +2,6 @@ let imports = ../imports.dhall
 
 let Kubernetes = imports.Kubernetes
 
-let ObjectMeta = Kubernetes.Type.ObjectMeta
-
 let AlertmanagerSpec = ./AlertmanagerSpec.dhall
 
 let AlertmanagerStatus = ./AlertmanagerStatus.dhall
@@ -12,21 +10,19 @@ let Alertmanager =
       { Type =
           { apiVersion : Text
           , kind : Text
-          , metadata : ObjectMeta
+          , metadata : Kubernetes.ObjectMeta.Type
           , spec : AlertmanagerSpec.Type
           , status : Optional AlertmanagerStatus.Type
           }
       , default =
           { apiVersion = "monitoring.coreos.com/v1"
           , kind = "Alertmanager"
-          , spec = AlertmanagerSpec.default
+          , spec = AlertmanagerSpec::{=}
           , status = None AlertmanagerStatus.Type
           }
       }
 
 let test =
-      Alertmanager::{
-      , metadata = Kubernetes.default.ObjectMeta ⫽ { name = "example" }
-      }
+      Alertmanager::{ metadata = Kubernetes.ObjectMeta::{ name = "example" } }
 
 in  Alertmanager

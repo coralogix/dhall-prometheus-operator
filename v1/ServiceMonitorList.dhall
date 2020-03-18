@@ -6,13 +6,13 @@ let ServiceMonitorList =
       { Type =
           { apiVersion : Text
           , kind : Text
-          , metadata : Kubernetes.Type.ListMeta
+          , metadata : Kubernetes.ListMeta.Type
           , items : List ServiceMonitor.Type
           }
       , default =
           { apiVersion = "monitoring.coreos.com/v1"
           , kind = "ServiceMonitorList"
-          , metadata = Kubernetes.default.ListMeta
+          , metadata = Kubernetes.ListMeta::{=}
           , items = [] : List ServiceMonitor.Type
           }
       }

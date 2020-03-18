@@ -2,7 +2,7 @@ let imports = ../imports.dhall
 
 let Map = imports.Prelude.Map.Type
 
-let Kubernetes = imports.Kubernetes.Type
+let Kubernetes = imports.Kubernetes
 
 let AlertingSpec = ./AlertingSpec.dhall
 
@@ -27,18 +27,19 @@ let NamespaceSelector = ./NamespaceSelector.dhall
 
 let PrometheusSpec =
       { Type =
-          { podMetadata : Optional Kubernetes.ObjectMeta
-          , serviceMonitorSelector : Optional Kubernetes.LabelSelector
-          , serviceMonitorNamespaceSelector : Optional Kubernetes.LabelSelector
-          , podMonitorSelector : Optional Kubernetes.LabelSelector
-          , podMonitorNamespaceSelector : Optional Kubernetes.LabelSelector
+          { podMetadata : Optional Kubernetes.ObjectMeta.Type
+          , serviceMonitorSelector : Optional Kubernetes.LabelSelector.Type
+          , serviceMonitorNamespaceSelector :
+              Optional Kubernetes.LabelSelector.Type
+          , podMonitorSelector : Optional Kubernetes.LabelSelector.Type
+          , podMonitorNamespaceSelector : Optional Kubernetes.LabelSelector.Type
           , version : Optional Text
           , tag : Optional Text
           , sha : Optional Text
           , paused : Optional Bool
           , image : Optional Text
           , baseImage : Optional Text
-          , imagePullSecrets : List Kubernetes.LocalObjectReference
+          , imagePullSecrets : List Kubernetes.LocalObjectReference.Type
           , replicas : Optional Natural
           , replicaExternalLabelName : Optional Text
           , prometheusExternalLabelName : Optional Text
@@ -57,28 +58,28 @@ let PrometheusSpec =
           , routePrefix : Optional Text
           , query : Optional QuerySpec.Type
           , storage : Optional StorageSpec
-          , volumes : List Kubernetes.Volume
-          , ruleSelector : Optional Kubernetes.LabelSelector
-          , ruleNamespaceSelector : Optional Kubernetes.LabelSelector
+          , volumes : List Kubernetes.Volume.Type
+          , ruleSelector : Optional Kubernetes.LabelSelector.Type
+          , ruleNamespaceSelector : Optional Kubernetes.LabelSelector.Type
           , alerting : Optional AlertingSpec.Type
-          , resources : Optional Kubernetes.ResourceRequirements
+          , resources : Optional Kubernetes.ResourceRequirements.Type
           , nodeSelector : Map Text Text
           , serviceAccountName : Optional Text
           , secrets : List Text
           , configMaps : List Text
-          , affinity : Optional Kubernetes.Affinity
-          , tolerations : List Kubernetes.Toleration
+          , affinity : Optional Kubernetes.Affinity.Type
+          , tolerations : List Kubernetes.Toleration.Type
           , remoteWrite : List RemoteWriteSpec.Type
           , remoteRead : List RemoteReadSpec.Type
-          , securityContext : Optional Kubernetes.PodSecurityContext
+          , securityContext : Optional Kubernetes.PodSecurityContext.Type
           , listenLocal : Optional Bool
-          , containers : List Kubernetes.Container
-          , initContainers : List Kubernetes.Container
-          , additionalScrapeConfigs : Optional Kubernetes.SecretKeySelector
+          , containers : List Kubernetes.Container.Type
+          , initContainers : List Kubernetes.Container.Type
+          , additionalScrapeConfigs : Optional Kubernetes.SecretKeySelector.Type
           , additionalAlertRelabelConfigs :
-              Optional Kubernetes.SecretKeySelector
+              Optional Kubernetes.SecretKeySelector.Type
           , additionalAlertManagerConfigs :
-              Optional Kubernetes.SecretKeySelector
+              Optional Kubernetes.SecretKeySelector.Type
           , apiserverConfig : Optional APIServerConfig.Union
           , thanos : Optional ThanosSpec.Type
           , priorityClassName : Optional Text
@@ -91,18 +92,18 @@ let PrometheusSpec =
           , enforcedNamespaceLabel : Optional Text
           }
       , default =
-          { podMetadata = None Kubernetes.ObjectMeta
-          , serviceMonitorSelector = None Kubernetes.LabelSelector
-          , serviceMonitorNamespaceSelector = None Kubernetes.LabelSelector
-          , podMonitorSelector = None Kubernetes.LabelSelector
-          , podMonitorNamespaceSelector = None Kubernetes.LabelSelector
+          { podMetadata = None Kubernetes.ObjectMeta.Type
+          , serviceMonitorSelector = None Kubernetes.LabelSelector.Type
+          , serviceMonitorNamespaceSelector = None Kubernetes.LabelSelector.Type
+          , podMonitorSelector = None Kubernetes.LabelSelector.Type
+          , podMonitorNamespaceSelector = None Kubernetes.LabelSelector.Type
           , version = None Text
           , tag = None Text
           , sha = None Text
           , paused = None Bool
           , image = None Text
           , baseImage = None Text
-          , imagePullSecrets = [] : List Kubernetes.LocalObjectReference
+          , imagePullSecrets = [] : List Kubernetes.LocalObjectReference.Type
           , replicas = None Natural
           , replicaExternalLabelName = None Text
           , prometheusExternalLabelName = None Text
@@ -121,26 +122,28 @@ let PrometheusSpec =
           , routePrefix = None Text
           , query = None QuerySpec.Type
           , storage = None StorageSpec
-          , volumes = [] : List Kubernetes.Volume
-          , ruleSelector = None Kubernetes.LabelSelector
-          , ruleNamespaceSelector = None Kubernetes.LabelSelector
+          , volumes = [] : List Kubernetes.Volume.Type
+          , ruleSelector = None Kubernetes.LabelSelector.Type
+          , ruleNamespaceSelector = None Kubernetes.LabelSelector.Type
           , alerting = None AlertingSpec.Type
-          , resources = None Kubernetes.ResourceRequirements
+          , resources = None Kubernetes.ResourceRequirements.Type
           , nodeSelector = [] : Map Text Text
           , serviceAccountName = None Text
           , secrets = [] : List Text
           , configMaps = [] : List Text
-          , affinity = None Kubernetes.Affinity
-          , tolerations = [] : List Kubernetes.Toleration
+          , affinity = None Kubernetes.Affinity.Type
+          , tolerations = [] : List Kubernetes.Toleration.Type
           , remoteWrite = [] : List RemoteWriteSpec.Type
           , remoteRead = [] : List RemoteReadSpec.Type
-          , securityContext = None Kubernetes.PodSecurityContext
+          , securityContext = None Kubernetes.PodSecurityContext.Type
           , listenLocal = None Bool
-          , containers = [] : List Kubernetes.Container
-          , initContainers = [] : List Kubernetes.Container
-          , additionalScrapeConfigs = None Kubernetes.SecretKeySelector
-          , additionalAlertRelabelConfigs = None Kubernetes.SecretKeySelector
-          , additionalAlertManagerConfigs = None Kubernetes.SecretKeySelector
+          , containers = [] : List Kubernetes.Container.Type
+          , initContainers = [] : List Kubernetes.Container.Type
+          , additionalScrapeConfigs = None Kubernetes.SecretKeySelector.Type
+          , additionalAlertRelabelConfigs =
+              None Kubernetes.SecretKeySelector.Type
+          , additionalAlertManagerConfigs =
+              None Kubernetes.SecretKeySelector.Type
           , apiserverConfig = None APIServerConfig.Union
           , thanos = None ThanosSpec.Type
           , priorityClassName = None Text

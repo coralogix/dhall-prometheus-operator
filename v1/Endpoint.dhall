@@ -2,7 +2,7 @@ let imports = ../imports.dhall
 
 let Map = imports.Prelude.Map.Type
 
-let Kubernetes = imports.Kubernetes.Type
+let Kubernetes = imports.Kubernetes
 
 let BasicAuth = ./BasicAuth.dhall
 
@@ -18,7 +18,7 @@ let Common =
         , scrapeTimeout : Optional Text
         , tlsConfig : Optional TLSConfig.Type
         , bearerTokenFile : Optional Text
-        , bearerTokenSecret : Optional Kubernetes.SecretKeySelector
+        , bearerTokenSecret : Optional Kubernetes.SecretKeySelector.Type
         , honorLabels : Optional Bool
         , honorTimestamps : Optional Bool
         , basicAuth : Optional BasicAuth.Type
@@ -36,7 +36,7 @@ let common =
       , scrapeTimeout = None Text
       , tlsConfig = None TLSConfig.Type
       , bearerTokenFile = None Text
-      , bearerTokenSecret = None Kubernetes.SecretKeySelector
+      , bearerTokenSecret = None Kubernetes.SecretKeySelector.Type
       , honorLabels = None Bool
       , honorTimestamps = None Bool
       , basicAuth = None BasicAuth.Type

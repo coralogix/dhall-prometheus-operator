@@ -24,23 +24,22 @@ let APIServerConfig =
       }
 
 let test =
-      let kubernetes = (../imports.dhall).Kubernetes.default
-      
+      let Kubernetes = (../imports.dhall).Kubernetes
+
       let BasicAuth = ./BasicAuth.dhall
-      
+
       in  { basicAuth =
               APIServerConfig.Union.BasicAuth
                 APIServerConfig.BasicAuth::{
                 , host = "example.com"
-                , basicAuth =
-                    BasicAuth::{
-                    , username =
-                          kubernetes.SecretKeySelector
-                        ∧ { key = "example-username-key" }
-                    , password =
-                          kubernetes.SecretKeySelector
-                        ∧ { key = "example-password-key" }
+                , basicAuth = BasicAuth::{
+                  , username = Kubernetes.SecretKeySelector::{
+                    , key = "example-username-key"
                     }
+                  , password = Kubernetes.SecretKeySelector::{
+                    , key = "example-password-key"
+                    }
+                  }
                 }
           , bearerToken =
               APIServerConfig.Union.BearerToken

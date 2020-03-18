@@ -1,6 +1,6 @@
 let imports = ../imports.dhall
 
-let Kubernetes = imports.Kubernetes.Type
+let Kubernetes = imports.Kubernetes
 
 let PrometheusRuleSpec = ./PrometheusRuleSpec.dhall
 
@@ -8,22 +8,18 @@ let PrometheusRule =
       { Type =
           { apiVersion : Text
           , kind : Text
-          , metadata : Kubernetes.ObjectMeta
+          , metadata : Kubernetes.ObjectMeta.Type
           , spec : PrometheusRuleSpec.Type
           }
       , default =
           { apiVersion = "monitoring.coreos.com/v1"
           , kind = "PrometheusRule"
-          , metadata = Kubernetes.ObjectMeta
-          , spec = PrometheusRuleSpec.default
+          , metadata = Kubernetes.ObjectMeta.Type
+          , spec = PrometheusRuleSpec::{=}
           }
       }
 
 let test =
-      let kubernetes = imports.Kubernetes.default
-      
-      in  PrometheusRule::{
-          , metadata = kubernetes.ObjectMeta ⫽ { name = "example" }
-          }
+      PrometheusRule::{ metadata = Kubernetes.ObjectMeta::{ name = "example" } }
 
 in  PrometheusRule

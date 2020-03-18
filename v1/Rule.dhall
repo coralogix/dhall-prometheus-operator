@@ -2,7 +2,7 @@ let imports = ../imports.dhall
 
 let Map = imports.Prelude.Map.Type
 
-let IntOrString = imports.Kubernetes.Type.IntOrString
+let IntOrString = imports.Kubernetes.IntOrString
 
 let Rule =
       { Type =

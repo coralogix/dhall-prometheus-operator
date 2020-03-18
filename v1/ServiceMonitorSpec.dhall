@@ -1,6 +1,6 @@
 let imports = ../imports.dhall
 
-let Kubernetes = imports.Kubernetes.Type
+let Kubernetes = imports.Kubernetes
 
 let Endpoint = ./Endpoint.dhall
 
@@ -12,7 +12,7 @@ let ServiceMonitorSpec =
           , targetLabels : List Text
           , podTargetLabels : List Text
           , endpoints : List Endpoint.Union
-          , selector : Kubernetes.LabelSelector
+          , selector : Kubernetes.LabelSelector.Type
           , namespaceSelector : Optional NamespaceSelector
           , sampleLimit : Optional Natural
           }
@@ -26,9 +26,6 @@ let ServiceMonitorSpec =
           }
       }
 
-let test =
-      let kubernetes = imports.Kubernetes.default
-      
-      in  ServiceMonitorSpec::{ selector = kubernetes.LabelSelector }
+let test = ServiceMonitorSpec::{ selector = Kubernetes.LabelSelector::{=} }
 
 in  ServiceMonitorSpec
