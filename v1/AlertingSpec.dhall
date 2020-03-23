@@ -1,8 +1,8 @@
 let AlertmanagerEndpoints = ./AlertmanagerEndpoints.dhall
 
 let AlertingSpec =
-      { Type = { alertmanagers : List AlertmanagerEndpoints.Type }
-      , default.alertmanagers = [] : List AlertmanagerEndpoints.Type
+      { Type = { alertmanagers : Optional (List AlertmanagerEndpoints.Type) }
+      , default.alertmanagers = None (List AlertmanagerEndpoints.Type)
       }
 
 let test = AlertingSpec::{=}

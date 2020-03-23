@@ -7,7 +7,7 @@ let TLSConfig = ./TLSConfig.dhall
 let RemoteReadSpec =
       { Type =
           { url : Text
-          , requiredMatchers : Map Text Text
+          , requiredMatchers : Optional (Map Text Text)
           , remoteTimeout : Optional Text
           , readRecent : Optional Bool
           , basicAuth : Optional BasicAuth.Type
@@ -17,7 +17,7 @@ let RemoteReadSpec =
           , proxyUrl : Optional Text
           }
       , default =
-          { requiredMatchers = [] : Map Text Text
+          { requiredMatchers = None (Map Text Text)
           , remoteTimeout = None Text
           , readRecent = None Bool
           , basicAuth = None BasicAuth.Type

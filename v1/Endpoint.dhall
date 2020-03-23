@@ -13,7 +13,7 @@ let TLSConfig = ./TLSConfig.dhall
 let Common =
         { path : Optional Text
         , scheme : Optional Text
-        , params : Map Text Text
+        , params : Optional (Map Text Text)
         , interval : Optional Text
         , scrapeTimeout : Optional Text
         , tlsConfig : Optional TLSConfig.Type
@@ -22,8 +22,8 @@ let Common =
         , honorLabels : Optional Bool
         , honorTimestamps : Optional Bool
         , basicAuth : Optional BasicAuth.Type
-        , metricRelabelings : List RelabelConfig.Type
-        , relabelings : List RelabelConfig.Type
+        , metricRelabelings : Optional (List RelabelConfig.Type)
+        , relabelings : Optional (List RelabelConfig.Type)
         , proxyUrl : Optional Text
         }
       : Type
@@ -31,7 +31,7 @@ let Common =
 let common =
       { path = None Text
       , scheme = None Text
-      , params = [] : Map Text Text
+      , params = None (Map Text Text)
       , interval = None Text
       , scrapeTimeout = None Text
       , tlsConfig = None TLSConfig.Type
@@ -40,8 +40,8 @@ let common =
       , honorLabels = None Bool
       , honorTimestamps = None Bool
       , basicAuth = None BasicAuth.Type
-      , metricRelabelings = [] : List RelabelConfig.Type
-      , relabelings = [] : List RelabelConfig.Type
+      , metricRelabelings = None (List RelabelConfig.Type)
+      , relabelings = None (List RelabelConfig.Type)
       , proxyUrl = None Text
       }
 

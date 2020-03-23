@@ -13,27 +13,25 @@ This project relies upon resources provided by the [`dhall-kubernetes`](https://
 ## Install
 For stability, users are encouraged to import from a tagged release, not from the master branch, and to watch for new releases. This project does not yet have rigorous testing set up for it and new commits on the master branch are prone to break compatibility and are almost sure to change the import hash for the expression.
 ```
-https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.1/package.dhall sha256:1160d4c0f3d0f4750dd1644b2ba8351b197ebad4b1f577b42e7ae590f4706726
+https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v4.0.0/package.dhall sha256:bcfe5eed190f43f737a09bb2e40975cfd6fabc1f026c6475b012c263502a6210
 ```
 
 ## Example Usage
 ### Example ServiceMonitor
 ```dhall
-let kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/4ad58156b7fdbbb6da0543d8b314df899feca077/defaults.dhall sha256:4450e23dc81975d111650e06c0238862944bf699537af6cbacac9c7e471dfabe
+let Kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/506d633e382872346927b8cb9884d8b7382e6cab/package.dhall sha256:d9eac5668d5ed9cb3364c0a39721d4694e4247dad16d8a82827e4619ee1d6188
 
-let Kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/4ad58156b7fdbbb6da0543d8b314df899feca077/types.dhall sha256:e48e21b807dad217a6c3e631fcaf3e950062310bfb4a8bbcecc330eb7b2f60ed
-
-let PrometheusOperator = (https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v3.1.1/package.dhall sha256:1160d4c0f3d0f4750dd1644b2ba8351b197ebad4b1f577b42e7ae590f4706726).v1
+let PrometheusOperator = (https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v4.0.0/package.dhall sha256:bcfe5eed190f43f737a09bb2e40975cfd6fabc1f026c6475b012c263502a6210).v1
 
 in PrometheusOperator.ServiceMonitor::{
    , metadata =
-         kubernetes.ObjectMeta // { name = "example" }
+         Kubernetes.ObjectMeta::{ name = "example" }
    , spec =
        PrometheusOperator.ServiceMonitorSpec::{
        , selector =
-             kubernetes.LabelSelector 
-          // { matchLabels =
-                toMap { app = "example" }
+             Kubernetes.LabelSelector::{
+             , matchLabels = Some
+                (toMap { app = "example" })
              }
        , endpoints =
          [ PrometheusOperator.Endpoint.Union.TargetPort

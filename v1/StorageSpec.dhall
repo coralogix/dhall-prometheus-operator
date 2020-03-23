@@ -9,20 +9,4 @@ let StorageSpec =
       | VolumeClaimTemplate : { volumeClaimTemplate : VolumeClaimTemplate.Type }
       >
 
-let test =
-      let VolumeClaimTemplate = ./VolumeClaimTemplate.dhall
-
-      let VolumeClaimTemplateSpec = ./VolumeClaimTemplateSpec.dhall
-
-      in  { emptyDir =
-              StorageSpec.EmptyDir
-                { emptyDir = Kubernetes.EmptyDirVolumeSource::{=} }
-          , volumeClaimTemplate =
-              StorageSpec.VolumeClaimTemplate
-                { volumeClaimTemplate = VolumeClaimTemplate::{
-                  , spec = VolumeClaimTemplateSpec::{=}
-                  }
-                }
-          }
-
 in  StorageSpec

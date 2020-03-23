@@ -10,7 +10,7 @@ let RemoteWriteSpec =
       { Type =
           { url : Text
           , remoteTimeout : Optional Text
-          , writeRelabelConfigs : List RelabelConfig.Type
+          , writeRelabelConfigs : Optional (List RelabelConfig.Type)
           , basicAuth : Optional BasicAuth.Type
           , bearerToken : Optional Text
           , bearerTokenFile : Optional Text
@@ -20,7 +20,7 @@ let RemoteWriteSpec =
           }
       , default =
           { remoteTimeout = None Text
-          , writeRelabelConfigs = [] : List RelabelConfig.Type
+          , writeRelabelConfigs = None (List RelabelConfig.Type)
           , basicAuth = None BasicAuth.Type
           , bearerToken = None Text
           , bearerTokenFile = None Text

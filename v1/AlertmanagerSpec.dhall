@@ -14,31 +14,32 @@ let AlertmanagerSpec =
           , tag : Optional Text
           , sha : Optional Text
           , baseImage : Optional Text
-          , imagePullSecrets : List Kubernetes.LocalObjectReference.Type
-          , secrets : List Text
-          , configMaps : List Text
+          , imagePullSecrets :
+              Optional (List Kubernetes.LocalObjectReference.Type)
+          , secrets : Optional (List Text)
+          , configMaps : Optional (List Text)
           , configSecret : Optional Text
           , logLevel : Optional Text
           , logFormat : Optional Text
           , replicas : Optional Natural
           , retention : Optional Text
           , storage : Optional StorageSpec
-          , volumes : List Kubernetes.Volume.Type
-          , volumeMounts : List Kubernetes.VolumeMount.Type
+          , volumes : Optional (List Kubernetes.Volume.Type)
+          , volumeMounts : Optional (List Kubernetes.VolumeMount.Type)
           , externalUrl : Optional Text
           , routePrefix : Optional Text
           , paused : Optional Bool
-          , nodeSelector : Map Text Text
+          , nodeSelector : Optional (Map Text Text)
           , resources : Optional Kubernetes.ResourceRequirements.Type
           , affinity : Optional Kubernetes.Affinity.Type
-          , tolerations : List Kubernetes.Toleration.Type
+          , tolerations : Optional (List Kubernetes.Toleration.Type)
           , securityContext : Optional Kubernetes.PodSecurityContext.Type
           , serviceAccountName : Optional Text
           , listenLocal : Optional Bool
-          , containers : List Kubernetes.Container.Type
-          , initContainers : List Kubernetes.Container.Type
+          , containers : Optional (List Kubernetes.Container.Type)
+          , initContainers : Optional (List Kubernetes.Container.Type)
           , priorityClassName : Optional Text
-          , additionalPeers : List Text
+          , additionalPeers : Optional (List Text)
           , portName : Optional Text
           }
       , default =
@@ -48,31 +49,31 @@ let AlertmanagerSpec =
           , tag = None Text
           , sha = None Text
           , baseImage = None Text
-          , imagePullSecrets = [] : List Kubernetes.LocalObjectReference.Type
-          , secrets = [] : List Text
-          , configMaps = [] : List Text
+          , imagePullSecrets = None (List Kubernetes.LocalObjectReference.Type)
+          , secrets = None (List Text)
+          , configMaps = None (List Text)
           , configSecret = None Text
           , logLevel = None Text
           , logFormat = None Text
           , replicas = None Natural
           , retention = None Text
           , storage = None StorageSpec
-          , volumes = [] : List Kubernetes.Volume.Type
-          , volumeMounts = [] : List Kubernetes.VolumeMount.Type
+          , volumes = None (List Kubernetes.Volume.Type)
+          , volumeMounts = None (List Kubernetes.VolumeMount.Type)
           , externalUrl = None Text
           , routePrefix = None Text
           , paused = None Bool
-          , nodeSelector = [] : Map Text Text
+          , nodeSelector = None (Map Text Text)
           , resources = None Kubernetes.ResourceRequirements.Type
           , affinity = None Kubernetes.Affinity.Type
-          , tolerations = [] : List Kubernetes.Toleration.Type
+          , tolerations = None (List Kubernetes.Toleration.Type)
           , securityContext = None Kubernetes.PodSecurityContext.Type
           , serviceAccountName = None Text
           , listenLocal = None Bool
-          , containers = [] : List Kubernetes.Container.Type
-          , initContainers = [] : List Kubernetes.Container.Type
+          , containers = None (List Kubernetes.Container.Type)
+          , initContainers = None (List Kubernetes.Container.Type)
           , priorityClassName = None Text
-          , additionalPeers = [] : List Text
+          , additionalPeers = None (List Text)
           , portName = None Text
           }
       }

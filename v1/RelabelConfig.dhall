@@ -5,7 +5,7 @@ let RelabelConfig =
           , regex : Optional Text
           , replacement : Optional Text
           , separator : Optional Text
-          , sourceLabels : List Text
+          , sourceLabels : Optional (List Text)
           , targetLabel : Optional Text
           }
       , default =
@@ -14,7 +14,7 @@ let RelabelConfig =
           , regex = None Text
           , replacement = None Text
           , separator = None Text
-          , sourceLabels = [] : List Text
+          , sourceLabels = None (List Text)
           , targetLabel = None Text
           }
       }

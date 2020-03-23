@@ -10,15 +10,15 @@ let Rule =
           , alert : Optional Text
           , expr : IntOrString
           , for : Optional Text
-          , labels : Map Text Text
-          , annotations : Map Text Text
+          , labels : Optional (Map Text Text)
+          , annotations : Optional (Map Text Text)
           }
       , default =
           { record = None Text
           , alert = None Text
           , for = None Text
-          , labels = [] : Map Text Text
-          , annotations = [] : Map Text Text
+          , labels = None (Map Text Text)
+          , annotations = None (Map Text Text)
           }
       }
 
