@@ -11,13 +11,13 @@ let
 
   dhall-haskell = import (
     let
-      version = "1.30.0";
+      version = "1.31.0";
     in nixpkgs.fetchFromGitHub {
       owner           = "dhall-lang";
       repo            = "dhall-haskell";
       rev             = version;
       fetchSubmodules = true;
-      sha256          = "1a662vwv7azdz77a1lwblqlpavh6dnf5idna932vhimnd03pczv4";
+      sha256          = "030kxbghm9k1r0amrfdlnz9kq2rqijr7pxhbv0bhcb5lrkzajjak";
     }
   );
 

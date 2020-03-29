@@ -19,15 +19,15 @@ let RemoteWriteSpec =
           , queueConfig : Optional QueueConfig.Type
           }
       , default =
-          { remoteTimeout = None Text
-          , writeRelabelConfigs = None (List RelabelConfig.Type)
-          , basicAuth = None BasicAuth.Type
-          , bearerToken = None Text
-          , bearerTokenFile = None Text
-          , tlsConfig = None TLSConfig.Type
-          , proxyUrl = None Text
-          , queueConfig = None QueueConfig.Type
-          }
+        { remoteTimeout = None Text
+        , writeRelabelConfigs = None (List RelabelConfig.Type)
+        , basicAuth = None BasicAuth.Type
+        , bearerToken = None Text
+        , bearerTokenFile = None Text
+        , tlsConfig = None TLSConfig.Type
+        , proxyUrl = None Text
+        , queueConfig = None QueueConfig.Type
+        }
       }
 
 let test = RemoteWriteSpec::{ url = "example.com" }

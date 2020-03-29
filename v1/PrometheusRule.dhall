@@ -11,5 +11,5 @@ in  { Type =
         , spec : PrometheusRuleSpec.Type
         }
     , default =
-        { apiVersion = "monitoring.coreos.com/v1", kind = "PrometheusRule" }
+      { apiVersion = "monitoring.coreos.com/v1", kind = "PrometheusRule" }
     }

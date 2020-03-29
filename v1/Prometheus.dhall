@@ -14,8 +14,8 @@ in  { Type =
         , status : Optional PrometheusStatus.Type
         }
     , default =
-        { apiVersion = "monitoring.coreos.com/v1"
-        , kind = "Prometheus"
-        , status = None PrometheusStatus.Type
-        }
+      { apiVersion = "monitoring.coreos.com/v1"
+      , kind = "Prometheus"
+      , status = None PrometheusStatus.Type
+      }
     }

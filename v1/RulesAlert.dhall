@@ -5,10 +5,10 @@ let RulesAlert =
           , resendDelay : Optional Text
           }
       , default =
-          { forOutageTolerance = None Text
-          , forGracePeriod = None Text
-          , resendDelay = None Text
-          }
+        { forOutageTolerance = None Text
+        , forGracePeriod = None Text
+        , resendDelay = None Text
+        }
       }
 
 let test = RulesAlert::{=}

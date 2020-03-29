@@ -11,5 +11,5 @@ in  { Type =
         , spec : ServiceMonitorSpec.Type
         }
     , default =
-        { apiVersion = "monitoring.coreos.com/v1", kind = "ServiceMonitor" }
+      { apiVersion = "monitoring.coreos.com/v1", kind = "ServiceMonitor" }
     }

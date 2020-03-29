@@ -21,17 +21,17 @@ in  { Type =
         , proxyUrl : Optional Text
         }
     , default =
-        { port = None Text
-        , targetPort = None Kubernetes.IntOrString
-        , path = None Text
-        , scheme = None Text
-        , params = None (Prelude.Map.Type Text Text)
-        , interval = None Text
-        , scrapeTimeout = None Text
-        , honorLabels = None Bool
-        , honorTimestamps = None Bool
-        , metricRelabelings = None (List RelabelConfig)
-        , relabelings = None (List RelabelConfig)
-        , proxyUrl = None Text
-        }
+      { port = None Text
+      , targetPort = None Kubernetes.IntOrString
+      , path = None Text
+      , scheme = None Text
+      , params = None (Prelude.Map.Type Text Text)
+      , interval = None Text
+      , scrapeTimeout = None Text
+      , honorLabels = None Bool
+      , honorTimestamps = None Bool
+      , metricRelabelings = None (List RelabelConfig)
+      , relabelings = None (List RelabelConfig)
+      , proxyUrl = None Text
+      }
     }

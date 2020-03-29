@@ -14,8 +14,8 @@ in  { Type =
         , status : Optional AlertmanagerStatus.Type
         }
     , default =
-        { apiVersion = "monitoring.coreos.com/v1"
-        , kind = "Alertmanager"
-        , status = None AlertmanagerStatus.Type
-        }
+      { apiVersion = "monitoring.coreos.com/v1"
+      , kind = "Alertmanager"
+      , status = None AlertmanagerStatus.Type
+      }
     }

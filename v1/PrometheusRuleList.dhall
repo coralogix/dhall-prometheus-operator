@@ -9,5 +9,5 @@ in  { Type =
         , items : Optional (List PrometheusRule.Type)
         }
     , default =
-        { apiVersion = "monitoring.coreos.com/v1", kind = "PrometheusRuleList" }
+      { apiVersion = "monitoring.coreos.com/v1", kind = "PrometheusRuleList" }
     }

@@ -15,9 +15,9 @@ in  { Type =
         , sampleLimit : Optional Natural
         }
     , default =
-        { jobLabel = None Text
-        , podTargetLabels = None (List Text)
-        , namespaceSelector = None NamespaceSelector
-        , sampleLimit = None Natural
-        }
+      { jobLabel = None Text
+      , podTargetLabels = None (List Text)
+      , namespaceSelector = None NamespaceSelector
+      , sampleLimit = None Natural
+      }
     }

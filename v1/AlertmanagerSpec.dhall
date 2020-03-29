@@ -43,39 +43,39 @@ let AlertmanagerSpec =
           , portName : Optional Text
           }
       , default =
-          { podMetadata = None Kubernetes.ObjectMeta.Type
-          , image = None Text
-          , version = None Text
-          , tag = None Text
-          , sha = None Text
-          , baseImage = None Text
-          , imagePullSecrets = None (List Kubernetes.LocalObjectReference.Type)
-          , secrets = None (List Text)
-          , configMaps = None (List Text)
-          , configSecret = None Text
-          , logLevel = None Text
-          , logFormat = None Text
-          , replicas = None Natural
-          , retention = None Text
-          , storage = None StorageSpec
-          , volumes = None (List Kubernetes.Volume.Type)
-          , volumeMounts = None (List Kubernetes.VolumeMount.Type)
-          , externalUrl = None Text
-          , routePrefix = None Text
-          , paused = None Bool
-          , nodeSelector = None (Map Text Text)
-          , resources = None Kubernetes.ResourceRequirements.Type
-          , affinity = None Kubernetes.Affinity.Type
-          , tolerations = None (List Kubernetes.Toleration.Type)
-          , securityContext = None Kubernetes.PodSecurityContext.Type
-          , serviceAccountName = None Text
-          , listenLocal = None Bool
-          , containers = None (List Kubernetes.Container.Type)
-          , initContainers = None (List Kubernetes.Container.Type)
-          , priorityClassName = None Text
-          , additionalPeers = None (List Text)
-          , portName = None Text
-          }
+        { podMetadata = None Kubernetes.ObjectMeta.Type
+        , image = None Text
+        , version = None Text
+        , tag = None Text
+        , sha = None Text
+        , baseImage = None Text
+        , imagePullSecrets = None (List Kubernetes.LocalObjectReference.Type)
+        , secrets = None (List Text)
+        , configMaps = None (List Text)
+        , configSecret = None Text
+        , logLevel = None Text
+        , logFormat = None Text
+        , replicas = None Natural
+        , retention = None Text
+        , storage = None StorageSpec
+        , volumes = None (List Kubernetes.Volume.Type)
+        , volumeMounts = None (List Kubernetes.VolumeMount.Type)
+        , externalUrl = None Text
+        , routePrefix = None Text
+        , paused = None Bool
+        , nodeSelector = None (Map Text Text)
+        , resources = None Kubernetes.ResourceRequirements.Type
+        , affinity = None Kubernetes.Affinity.Type
+        , tolerations = None (List Kubernetes.Toleration.Type)
+        , securityContext = None Kubernetes.PodSecurityContext.Type
+        , serviceAccountName = None Text
+        , listenLocal = None Bool
+        , containers = None (List Kubernetes.Container.Type)
+        , initContainers = None (List Kubernetes.Container.Type)
+        , priorityClassName = None Text
+        , additionalPeers = None (List Text)
+        , portName = None Text
+        }
       }
 
 let test = AlertmanagerSpec::{=}

@@ -16,11 +16,11 @@ in  { Type =
         , sampleLimit : Optional Natural
         }
     , default =
-        { jobLabel = None Text
-        , targetLabels = None (List Text)
-        , podTargetLabels = None (List Text)
-        , endpoints = None (List Endpoint.Union)
-        , namespaceSelector = None NamespaceSelector
-        , sampleLimit = None Natural
-        }
+      { jobLabel = None Text
+      , targetLabels = None (List Text)
+      , podTargetLabels = None (List Text)
+      , endpoints = None (List Endpoint.Union)
+      , namespaceSelector = None NamespaceSelector
+      , sampleLimit = None Natural
+      }
     }

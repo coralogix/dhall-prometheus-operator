@@ -13,10 +13,10 @@ in  { Type =
         , apiVersion : Optional Text
         }
     , default =
-        { scheme = None Text
-        , pathPrefix = None Text
-        , tlsConfig = None TLSConfig.Type
-        , bearerTokenFile = None Text
-        , apiVersion = None Text
-        }
+      { scheme = None Text
+      , pathPrefix = None Text
+      , tlsConfig = None TLSConfig.Type
+      , bearerTokenFile = None Text
+      , apiVersion = None Text
+      }
     }

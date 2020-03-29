@@ -12,15 +12,15 @@ let ThanosSpec =
           , listenLocal : Optional Bool
           }
       , default =
-          { image = None Text
-          , version = None Text
-          , tag = None Text
-          , sha = None Text
-          , baseImage = None Text
-          , resources = None Kubernetes.ResourceRequirements.Type
-          , objectStorageConfig = None Kubernetes.SecretKeySelector.Type
-          , listenLocal = None Bool
-          }
+        { image = None Text
+        , version = None Text
+        , tag = None Text
+        , sha = None Text
+        , baseImage = None Text
+        , resources = None Kubernetes.ResourceRequirements.Type
+        , objectStorageConfig = None Kubernetes.SecretKeySelector.Type
+        , listenLocal = None Bool
+        }
       }
 
 let test = ThanosSpec::{=}

@@ -6,11 +6,11 @@ let QuerySpec =
           , maxSamples : Optional Natural
           }
       , default =
-          { lookbackDelta = None Text
-          , maxConcurrency = None Natural
-          , timeout = None Text
-          , maxSamples = None Natural
-          }
+        { lookbackDelta = None Text
+        , maxConcurrency = None Natural
+        , timeout = None Text
+        , maxSamples = None Natural
+        }
       }
 
 let test = QuerySpec::{=}

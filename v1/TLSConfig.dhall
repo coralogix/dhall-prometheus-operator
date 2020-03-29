@@ -16,15 +16,15 @@ let TLSConfig =
           , insecureSkipVerify : Optional Bool
           }
       , default =
-          { caFile = None Text
-          , ca = None SecretOrConfigMap.Type
-          , certFile = None Text
-          , cert = None SecretOrConfigMap.Type
-          , keyFile = None Text
-          , keySecret = None Kubernetes.SecretKeySelector.Type
-          , serverName = None Text
-          , insecureSkipVerify = None Bool
-          }
+        { caFile = None Text
+        , ca = None SecretOrConfigMap.Type
+        , certFile = None Text
+        , cert = None SecretOrConfigMap.Type
+        , keyFile = None Text
+        , keySecret = None Kubernetes.SecretKeySelector.Type
+        , serverName = None Text
+        , insecureSkipVerify = None Bool
+        }
       }
 
 let test = TLSConfig::{=}

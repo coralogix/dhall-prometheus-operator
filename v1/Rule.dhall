@@ -14,12 +14,12 @@ let Rule =
           , annotations : Optional (Map Text Text)
           }
       , default =
-          { record = None Text
-          , alert = None Text
-          , for = None Text
-          , labels = None (Map Text Text)
-          , annotations = None (Map Text Text)
-          }
+        { record = None Text
+        , alert = None Text
+        , for = None Text
+        , labels = None (Map Text Text)
+        , annotations = None (Map Text Text)
+        }
       }
 
 let test = Rule::{ expr = IntOrString.String "example" }

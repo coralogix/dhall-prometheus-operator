@@ -10,11 +10,11 @@ let AlertmanagerList =
           , items : Optional (List Alertmanager.Type)
           }
       , default =
-          { apiVersion = "monitoring.coreos.com/v1"
-          , kind = "AlertmanagerList"
-          , metadata = None ListMeta
-          , items = None (List Alertmanager.Type)
-          }
+        { apiVersion = "monitoring.coreos.com/v1"
+        , kind = "AlertmanagerList"
+        , metadata = None ListMeta
+        , items = None (List Alertmanager.Type)
+        }
       }
 
 let test = AlertmanagerList::{=}

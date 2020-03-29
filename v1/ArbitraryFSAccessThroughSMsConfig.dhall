@@ -1,1 +1,1 @@
-{ Type = { deny : Optional Bool }, default = { deny = None Bool } }
+{ Type = { deny : Optional Bool }, default.deny = None Bool }

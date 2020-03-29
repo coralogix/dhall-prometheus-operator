@@ -9,5 +9,5 @@ in  { Type =
         , items : Optional (List PodMonitor.Type)
         }
     , default =
-        { apiVersion = "monitoring.coreos.com/v1", kind = "PodMonitorList" }
+      { apiVersion = "monitoring.coreos.com/v1", kind = "PodMonitorList" }
     }

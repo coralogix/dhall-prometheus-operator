@@ -9,8 +9,8 @@ in  { Type =
         , items : Optional (List ServiceMonitor.Type)
         }
     , default =
-        { apiVersion = "monitoring.coreos.com/v1"
-        , kind = "ServiceMonitorList"
-        , items = None (List ServiceMonitor.Type)
-        }
+      { apiVersion = "monitoring.coreos.com/v1"
+      , kind = "ServiceMonitorList"
+      , items = None (List ServiceMonitor.Type)
+      }
     }

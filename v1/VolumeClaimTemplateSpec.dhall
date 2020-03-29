@@ -10,13 +10,13 @@ let VolumeClaimTemplateSpec =
           , volumeName : Optional Text
           }
       , default =
-          { accessModes = None (List Text)
-          , resources = None Kubernetes.ResourceRequirements.Type
-          , selector = None Kubernetes.LabelSelector.Type
-          , storageClassName = None Text
-          , volumeMode = None Text
-          , volumeName = None Text
-          }
+        { accessModes = None (List Text)
+        , resources = None Kubernetes.ResourceRequirements.Type
+        , selector = None Kubernetes.LabelSelector.Type
+        , storageClassName = None Text
+        , volumeMode = None Text
+        , volumeName = None Text
+        }
       }
 
 let test = VolumeClaimTemplateSpec::{=}

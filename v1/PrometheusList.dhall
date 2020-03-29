@@ -9,5 +9,5 @@ in  { Type =
         , items : Optional (List Prometheus.Type)
         }
     , default =
-        { apiVersion = "monitoring.coreos.com/v1", kind = "PrometheusList" }
+      { apiVersion = "monitoring.coreos.com/v1", kind = "PrometheusList" }
     }
