@@ -13,7 +13,7 @@ let TLSConfig = ./TLSConfig.dhall
 let Common =
         { path : Optional Text
         , scheme : Optional Text
-        , params : Optional (Map Text Text)
+        , params : Optional (Map Text (List Text))
         , interval : Optional Text
         , scrapeTimeout : Optional Text
         , tlsConfig : Optional TLSConfig.Type
@@ -31,7 +31,7 @@ let Common =
 let common =
       { path = None Text
       , scheme = None Text
-      , params = None (Map Text Text)
+      , params = None (Map Text (List Text))
       , interval = None Text
       , scrapeTimeout = None Text
       , tlsConfig = None TLSConfig.Type
