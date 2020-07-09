@@ -75,7 +75,7 @@ let AlertmanagerSpec =
         , initContainers = None (List Kubernetes.Container.Type)
         , priorityClassName = None Text
         , additionalPeers = None (List Text)
-        , clusterAdvertiseAddress : None Text
+        , clusterAdvertiseAddress = None Text
         , portName = None Text
         }
       }

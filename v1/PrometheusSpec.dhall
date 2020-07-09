@@ -129,9 +129,10 @@ in  { Type =
       , query = None QuerySpec.Type
       , storage = None StorageSpec
       , volumes = None (List Kubernetes.Volume.Type)
-      , volumeMounts : None (List Kubernetes.VolumeMount.Type)
+      , volumeMounts = None (List Kubernetes.VolumeMount.Type)
       , ruleSelector = None Kubernetes.LabelSelector.Type
       , ruleNamespaceSelector = None Kubernetes.LabelSelector.Type
+      , prometheusRulesExcludedFromEnforce = 
       , alerting = None AlertingSpec.Type
       , resources = None Kubernetes.ResourceRequirements.Type
       , nodeSelector = None (Map Text Text)
@@ -160,6 +161,6 @@ in  { Type =
       , ignoreNamespaceSelectors = None Bool
       , enforcedNamespaceLabel = None Text
       , queryLogFile = None Text
-      , enforcedSampleLimit : None Natural
+      , enforcedSampleLimit = None Natural
       }
     }
