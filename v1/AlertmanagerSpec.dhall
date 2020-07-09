@@ -40,6 +40,7 @@ let AlertmanagerSpec =
           , initContainers : Optional (List Kubernetes.Container.Type)
           , priorityClassName : Optional Text
           , additionalPeers : Optional (List Text)
+          , clusterAdvertiseAddress : Optional Text
           , portName : Optional Text
           }
       , default =
@@ -74,6 +75,7 @@ let AlertmanagerSpec =
         , initContainers = None (List Kubernetes.Container.Type)
         , priorityClassName = None Text
         , additionalPeers = None (List Text)
+        , clusterAdvertiseAddress : None Text
         , portName = None Text
         }
       }
