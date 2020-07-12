@@ -36,6 +36,8 @@
 , StorageSpec = ./StorageSpec.dhall
 , ThanosSpec = ./ThanosSpec.dhall
 , TLSConfig = ./TLSConfig.dhall
-, VolumeClaimTemplate = ./VolumeClaimTemplate.dhall
-, VolumeClaimTemplateSpec = ./VolumeClaimTemplateSpec.dhall
+, EmbeddedObjectMetadata = ./EmbeddedObjectMetadata.dhall
+, EmbeddedPersistentVolumeClaim = ./EmbeddedPersistentVolumeClaim.dhall
+, PrometheusRuleExcludeConfig = ./PrometheusRuleExcludeConfig.dhall
+
 }
