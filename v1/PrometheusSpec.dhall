@@ -62,7 +62,7 @@ in  { Type =
         , externalUrl : Optional Text
         , routePrefix : Optional Text
         , query : Optional QuerySpec.Type
-        , storage : Optional StorageSpec
+        , storage : Optional StorageSpec.Type
         , volumes : Optional (List Kubernetes.Volume.Type)
         , volumeMounts : Optional (List Kubernetes.VolumeMount.Type)
         , ruleSelector : Optional Kubernetes.LabelSelector.Type
@@ -97,10 +97,9 @@ in  { Type =
         , ignoreNamespaceSelectors : Optional Bool
         , enforcedNamespaceLabel : Optional Text
         , prometheusRulesExcludedFromEnforce :
-               Optional (List PrometheusRuleExcludeConfig.Type)        
+            Optional (List PrometheusRuleExcludeConfig.Type)
         , queryLogFile : Optional Text
         , enforcedSampleLimit : Optional Natural
-
         }
     , default =
       { podMetadata = None EmbeddedObjectMetadata.Type
@@ -133,7 +132,7 @@ in  { Type =
       , externalUrl = None Text
       , routePrefix = None Text
       , query = None QuerySpec.Type
-      , storage = None StorageSpec
+      , storage = None StorageSpec.Type
       , volumes = None (List Kubernetes.Volume.Type)
       , volumeMounts = None (List Kubernetes.VolumeMount.Type)
       , ruleSelector = None Kubernetes.LabelSelector.Type
@@ -165,7 +164,8 @@ in  { Type =
       , overrideHonorTimestamps = None Bool
       , ignoreNamespaceSelectors = None Bool
       , enforcedNamespaceLabel = None Text
-      , prometheusRulesExcludedFromEnforce = None (List PrometheusRuleExcludeConfig.Type)
+      , prometheusRulesExcludedFromEnforce =
+          None (List PrometheusRuleExcludeConfig.Type)
       , queryLogFile = None Text
       , enforcedSampleLimit = None Natural
       }

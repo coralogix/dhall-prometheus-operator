@@ -1,3 +1,5 @@
+let imports = ../imports.dhall
+
 let Map = imports.Prelude.Map.Type
 
 in  { Type =
