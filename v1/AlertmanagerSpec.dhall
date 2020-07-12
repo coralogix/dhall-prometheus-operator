@@ -6,7 +6,11 @@ let Kubernetes = imports.Kubernetes
 
 let StorageSpec = ./StorageSpec.dhall
 
+<<<<<<< HEAD
 let EmbeddedObjectMetadata = ./EmbeddedObjectMetadata.dhall
+=======
+let EmbeddedObjectMetadata = ./EmbeddedObjectMetadata
+>>>>>>> a92bacb22c20940bcd84ca309ba930a943a4844b
 
 let AlertmanagerSpec =
       { Type =
