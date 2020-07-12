@@ -138,7 +138,6 @@ in  { Type =
       , volumeMounts = None (List Kubernetes.VolumeMount.Type)
       , ruleSelector = None Kubernetes.LabelSelector.Type
       , ruleNamespaceSelector = None Kubernetes.LabelSelector.Type
-      , prometheusRulesExcludedFromEnforce = 
       , alerting = None AlertingSpec.Type
       , resources = None Kubernetes.ResourceRequirements.Type
       , nodeSelector = None (Map Text Text)
