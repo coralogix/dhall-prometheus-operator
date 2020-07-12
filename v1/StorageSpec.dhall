@@ -2,11 +2,20 @@ let imports = ../imports.dhall
 
 let Kubernetes = imports.Kubernetes
 
-let VolumeClaimTemplate = ./VolumeClaimTemplate.dhall
+let EmbeddedPersistentVolumeClaim = ./EmbeddedPersistentVolumeClaim.dhall
 
-let StorageSpec =
-      < EmptyDir : { emptyDir : Kubernetes.EmptyDirVolumeSource.Type }
-      | VolumeClaimTemplate : { volumeClaimTemplate : VolumeClaimTemplate.Type }
-      >
+in  { Type =
+        { EmptyDir : Optional  Kubernetes.EmptyDirVolumeSource.Type 
+        , VolumeClaimTemplate :  Optional EmbeddedPersistentVolumeClaim.Type
+        , disableMountSubPath :  Optional Bool
+        }
+    , default =
+        { EmptyDir = None Kubernetes.EmptyDirVolumeSource.Type 
+        , VolumeClaimTemplate = None EmbeddedPersistentVolumeClaim.Type
+        , disableMountSubPath = None Bool
+        }
+    }
 
-in  StorageSpec
+
+
+

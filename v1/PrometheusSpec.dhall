@@ -25,8 +25,12 @@ let ThanosSpec = ./ThanosSpec.dhall
 
 let NamespaceSelector = ./NamespaceSelector.dhall
 
+let PrometheusRuleExcludeConfig = ./PrometheusRuleExcludeConfig.dhall
+
+let EmbeddedObjectMetadata = ./EmbeddedObjectMetadata.dhall
+
 in  { Type =
-        { podMetadata : Optional Kubernetes.ObjectMeta.Type
+        { podMetadata : Optional EmbeddedObjectMetadata.Type
         , serviceMonitorSelector : Optional Kubernetes.LabelSelector.Type
         , serviceMonitorNamespaceSelector :
             Optional Kubernetes.LabelSelector.Type
@@ -92,12 +96,14 @@ in  { Type =
         , overrideHonorTimestamps : Optional Bool
         , ignoreNamespaceSelectors : Optional Bool
         , enforcedNamespaceLabel : Optional Text
+        , prometheusRulesExcludedFromEnforce :
+               Optional (List PrometheusRuleExcludeConfig.Type)        
         , queryLogFile : Optional Text
         , enforcedSampleLimit : Optional Natural
 
         }
     , default =
-      { podMetadata = None Kubernetes.ObjectMeta.Type
+      { podMetadata = None EmbeddedObjectMetadata.Type
       , serviceMonitorSelector = None Kubernetes.LabelSelector.Type
       , serviceMonitorNamespaceSelector = None Kubernetes.LabelSelector.Type
       , podMonitorSelector = None Kubernetes.LabelSelector.Type
@@ -160,6 +166,7 @@ in  { Type =
       , overrideHonorTimestamps = None Bool
       , ignoreNamespaceSelectors = None Bool
       , enforcedNamespaceLabel = None Text
+      , prometheusRulesExcludedFromEnforce = None (List PrometheusRuleExcludeConfig.Type)
       , queryLogFile = None Text
       , enforcedSampleLimit = None Natural
       }
