@@ -6,9 +6,11 @@ let Kubernetes = imports.Kubernetes
 
 let StorageSpec = ./StorageSpec.dhall
 
+let EmbeddedObjectMetadata = ./EmbeddedObjectMetadata
+
 let AlertmanagerSpec =
       { Type =
-          { podMetadata : Optional Kubernetes.ObjectMeta.Type
+          { podMetadata : Optional EmbeddedObjectMetadata.Type
           , image : Optional Text
           , version : Optional Text
           , tag : Optional Text
@@ -44,7 +46,7 @@ let AlertmanagerSpec =
           , portName : Optional Text
           }
       , default =
-        { podMetadata = None Kubernetes.ObjectMeta.Type
+        { podMetadata = None EmbeddedObjectMetadata.Type
         , image = None Text
         , version = None Text
         , tag = None Text

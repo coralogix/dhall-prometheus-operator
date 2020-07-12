@@ -4,9 +4,18 @@ let Kubernetes = imports.Kubernetes
 
 let VolumeClaimTemplate = ./VolumeClaimTemplate.dhall
 
-let StorageSpec =
-      < EmptyDir : { emptyDir : Kubernetes.EmptyDirVolumeSource.Type }
-      | VolumeClaimTemplate : { volumeClaimTemplate : VolumeClaimTemplate.Type }
-      >
+in  { Type =
+        { EmptyDir : Optional  Kubernetes.EmptyDirVolumeSource.Type 
+        , VolumeClaimTemplate :  Optional VolumeClaimTemplate.Type
+        , disableMountSubPath :  Optional Bool
+        }
+    , default =
+        { EmptyDir = None Kubernetes.EmptyDirVolumeSource.Type 
+        , VolumeClaimTemplate = None VolumeClaimTemplate.Type
+        , disableMountSubPath = None Bool
+        }
+    }
 
-in  StorageSpec
+
+
+
