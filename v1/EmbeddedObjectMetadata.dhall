@@ -4,7 +4,7 @@ let Map = imports.Prelude.Map.Type
 
 in  { Type =
         { name : Optional Text
-        , lables : Optional (Map Text Text)
+        , labels : Optional (Map Text Text)
         , annotations : Optional (Map Text Text)
         }
     , default =
