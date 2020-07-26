@@ -6,9 +6,11 @@ let Kubernetes = imports.Kubernetes
 
 let StorageSpec = ./StorageSpec.dhall
 
+let EmbeddedObjectMetadata = ./EmbeddedObjectMetadata.dhall
+
 let AlertmanagerSpec =
       { Type =
-          { podMetadata : Optional Kubernetes.ObjectMeta.Type
+          { podMetadata : Optional EmbeddedObjectMetadata.Type
           , image : Optional Text
           , version : Optional Text
           , tag : Optional Text
@@ -40,10 +42,11 @@ let AlertmanagerSpec =
           , initContainers : Optional (List Kubernetes.Container.Type)
           , priorityClassName : Optional Text
           , additionalPeers : Optional (List Text)
+          , clusterAdvertiseAddress : Optional Text
           , portName : Optional Text
           }
       , default =
-        { podMetadata = None Kubernetes.ObjectMeta.Type
+        { podMetadata = None EmbeddedObjectMetadata.Type
         , image = None Text
         , version = None Text
         , tag = None Text
@@ -74,6 +77,7 @@ let AlertmanagerSpec =
         , initContainers = None (List Kubernetes.Container.Type)
         , priorityClassName = None Text
         , additionalPeers = None (List Text)
+        , clusterAdvertiseAddress = None Text
         , portName = None Text
         }
       }

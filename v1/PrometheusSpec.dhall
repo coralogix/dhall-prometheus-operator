@@ -25,8 +25,12 @@ let ThanosSpec = ./ThanosSpec.dhall
 
 let NamespaceSelector = ./NamespaceSelector.dhall
 
+let PrometheusRuleExcludeConfig = ./PrometheusRuleExcludeConfig.dhall
+
+let EmbeddedObjectMetadata = ./EmbeddedObjectMetadata.dhall
+
 in  { Type =
-        { podMetadata : Optional Kubernetes.ObjectMeta.Type
+        { podMetadata : Optional EmbeddedObjectMetadata.Type
         , serviceMonitorSelector : Optional Kubernetes.LabelSelector.Type
         , serviceMonitorNamespaceSelector :
             Optional Kubernetes.LabelSelector.Type
@@ -50,6 +54,7 @@ in  { Type =
         , logLevel : Optional Text
         , logFormat : Optional Text
         , scrapeInterval : Optional Text
+        , scrapeTimeout : Optional Text
         , evaluationInterval : Optional Text
         , rules : Optional Rules.Type
         , externalLabels : Optional (Map Text Text)
@@ -59,6 +64,7 @@ in  { Type =
         , query : Optional QuerySpec.Type
         , storage : Optional StorageSpec
         , volumes : Optional (List Kubernetes.Volume.Type)
+        , volumeMounts : Optional (List Kubernetes.VolumeMount.Type)
         , ruleSelector : Optional Kubernetes.LabelSelector.Type
         , ruleNamespaceSelector : Optional Kubernetes.LabelSelector.Type
         , alerting : Optional AlertingSpec.Type
@@ -90,9 +96,13 @@ in  { Type =
         , overrideHonorTimestamps : Optional Bool
         , ignoreNamespaceSelectors : Optional Bool
         , enforcedNamespaceLabel : Optional Text
+        , prometheusRulesExcludedFromEnforce :
+            Optional (List PrometheusRuleExcludeConfig.Type)
+        , queryLogFile : Optional Text
+        , enforcedSampleLimit : Optional Natural
         }
     , default =
-      { podMetadata = None Kubernetes.ObjectMeta.Type
+      { podMetadata = None EmbeddedObjectMetadata.Type
       , serviceMonitorSelector = None Kubernetes.LabelSelector.Type
       , serviceMonitorNamespaceSelector = None Kubernetes.LabelSelector.Type
       , podMonitorSelector = None Kubernetes.LabelSelector.Type
@@ -114,6 +124,7 @@ in  { Type =
       , logLevel = None Text
       , logFormat = None Text
       , scrapeInterval = None Text
+      , scrapeTimeout = None Text
       , evaluationInterval = None Text
       , rules = None Rules.Type
       , externalLabels = None (Map Text Text)
@@ -123,6 +134,7 @@ in  { Type =
       , query = None QuerySpec.Type
       , storage = None StorageSpec
       , volumes = None (List Kubernetes.Volume.Type)
+      , volumeMounts = None (List Kubernetes.VolumeMount.Type)
       , ruleSelector = None Kubernetes.LabelSelector.Type
       , ruleNamespaceSelector = None Kubernetes.LabelSelector.Type
       , alerting = None AlertingSpec.Type
@@ -152,5 +164,9 @@ in  { Type =
       , overrideHonorTimestamps = None Bool
       , ignoreNamespaceSelectors = None Bool
       , enforcedNamespaceLabel = None Text
+      , prometheusRulesExcludedFromEnforce =
+          None (List PrometheusRuleExcludeConfig.Type)
+      , queryLogFile = None Text
+      , enforcedSampleLimit = None Natural
       }
     }
