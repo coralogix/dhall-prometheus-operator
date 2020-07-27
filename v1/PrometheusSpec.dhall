@@ -62,7 +62,7 @@ in  { Type =
         , externalUrl : Optional Text
         , routePrefix : Optional Text
         , query : Optional QuerySpec.Type
-        , storage : Optional StorageSpec.Union
+        , storage : Optional StorageSpec.Type
         , volumes : Optional (List Kubernetes.Volume.Type)
         , volumeMounts : Optional (List Kubernetes.VolumeMount.Type)
         , ruleSelector : Optional Kubernetes.LabelSelector.Type
@@ -86,7 +86,7 @@ in  { Type =
             Optional Kubernetes.SecretKeySelector.Type
         , additionalAlertManagerConfigs :
             Optional Kubernetes.SecretKeySelector.Type
-        , apiserverConfig : Optional APIServerConfig.Union
+        , apiserverConfig : Optional APIServerConfig.Type
         , thanos : Optional ThanosSpec.Type
         , priorityClassName : Optional Text
         , portName : Optional Text
@@ -135,7 +135,7 @@ in  { Type =
         , externalUrl = None Text
         , routePrefix = None Text
         , query = None QuerySpec.Type
-        , storage = None StorageSpec.Union
+        , storage = None StorageSpec.Type
         , volumes = None (List Kubernetes.Volume.Type)
         , volumeMounts = None (List Kubernetes.VolumeMount.Type)
         , ruleSelector = None Kubernetes.LabelSelector.Type
@@ -157,7 +157,7 @@ in  { Type =
         , additionalScrapeConfigs = None Kubernetes.SecretKeySelector.Type
         , additionalAlertRelabelConfigs = None Kubernetes.SecretKeySelector.Type
         , additionalAlertManagerConfigs = None Kubernetes.SecretKeySelector.Type
-        , apiserverConfig = None APIServerConfig.Union
+        , apiserverConfig = None APIServerConfig.Type
         , thanos = None ThanosSpec.Type
         , priorityClassName = None Text
         , portName = None Text

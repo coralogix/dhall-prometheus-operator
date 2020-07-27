@@ -27,7 +27,7 @@ let ThanosRulerSpec =
           , securityContext : Optional Kubernetes.PodSecurityContext.Type
           , priorityClassName : Optional Text
           , serviceAccountName : Optional Text
-          , storage : Optional StorageSpec.Union
+          , storage : Optional StorageSpec.Type
           , volumes : Optional (List Kubernetes.Volume.Type)
           , objectStorageConfig : Optional Kubernetes.SecretKeySelector.Type
           , listenLocal : Optional Bool
@@ -67,7 +67,7 @@ let ThanosRulerSpec =
           , tolerations = None (List Kubernetes.Toleration.Type)
           , securityContext = None Kubernetes.PodSecurityContext.Type
           , priorityClassName = None Text
-          , storage = None StorageSpec.Union
+          , storage = None StorageSpec.Type
           , serviceAccountName = None Text
           , volumes = None (List Kubernetes.Volume.Type)
           , objectStorageConfig = None Kubernetes.SecretKeySelector.Type

@@ -13,7 +13,7 @@ let BearerTokenFile = Common ⩓ { bearerTokenFile : Text }
 let common = { tlsConfig = None TLSConfig.Type }
 
 let APIServerConfig =
-      { Union =
+      { Type =
           < BasicAuth : BasicAuth
           | BearerToken : BearerToken
           | BearerTokenFile : BearerTokenFile
@@ -29,7 +29,7 @@ let test =
       let BasicAuth = ./BasicAuth.dhall
 
       in  { basicAuth =
-              APIServerConfig.Union.BasicAuth
+              APIServerConfig.Type.BasicAuth
                 APIServerConfig.BasicAuth::{
                 , host = "example.com"
                 , basicAuth = BasicAuth::{
@@ -42,13 +42,13 @@ let test =
                   }
                 }
           , bearerToken =
-              APIServerConfig.Union.BearerToken
+              APIServerConfig.Type.BearerToken
                 APIServerConfig.BearerToken::{
                 , host = "example.com"
                 , bearerToken = "example"
                 }
           , bearerTokenFile =
-              APIServerConfig.Union.BearerTokenFile
+              APIServerConfig.Type.BearerTokenFile
                 APIServerConfig.BearerTokenFile::{
                 , host = "example.com"
                 , bearerTokenFile = "path/to/example"

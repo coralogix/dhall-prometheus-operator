@@ -25,7 +25,7 @@ let AlertmanagerSpec =
           , logFormat : Optional Text
           , replicas : Optional Natural
           , retention : Optional Text
-          , storage : Optional StorageSpec.Union
+          , storage : Optional StorageSpec.Type
           , volumes : Optional (List Kubernetes.Volume.Type)
           , volumeMounts : Optional (List Kubernetes.VolumeMount.Type)
           , externalUrl : Optional Text
@@ -60,7 +60,7 @@ let AlertmanagerSpec =
         , logFormat = None Text
         , replicas = None Natural
         , retention = None Text
-        , storage = None StorageSpec.Union
+        , storage = None StorageSpec.Type
         , volumes = None (List Kubernetes.Volume.Type)
         , volumeMounts = None (List Kubernetes.VolumeMount.Type)
         , externalUrl = None Text
