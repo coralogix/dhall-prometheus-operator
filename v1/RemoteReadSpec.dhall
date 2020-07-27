@@ -7,6 +7,7 @@ let TLSConfig = ./TLSConfig.dhall
 let RemoteReadSpec =
       { Type =
           { url : Text
+          , name : Optional Text
           , requiredMatchers : Optional (Map Text Text)
           , remoteTimeout : Optional Text
           , readRecent : Optional Bool
@@ -17,15 +18,16 @@ let RemoteReadSpec =
           , proxyUrl : Optional Text
           }
       , default =
-        { requiredMatchers = None (Map Text Text)
-        , remoteTimeout = None Text
-        , readRecent = None Bool
-        , basicAuth = None BasicAuth.Type
-        , bearerToken = None Text
-        , bearerTokenFile = None Text
-        , tlsConfig = None TLSConfig.Type
-        , proxyUrl = None Text
-        }
+          { name = None Text
+          , requiredMatchers = None (Map Text Text)
+          , remoteTimeout = None Text
+          , readRecent = None Bool
+          , basicAuth = None BasicAuth.Type
+          , bearerToken = None Text
+          , bearerTokenFile = None Text
+          , tlsConfig = None TLSConfig.Type
+          , proxyUrl = None Text
+          }
       }
 
 let test = RemoteReadSpec::{ url = "example.com" }

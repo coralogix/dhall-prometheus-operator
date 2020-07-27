@@ -9,6 +9,7 @@ let TLSConfig = ./TLSConfig.dhall
 let RemoteWriteSpec =
       { Type =
           { url : Text
+          , name : Optional Text
           , remoteTimeout : Optional Text
           , writeRelabelConfigs : Optional (List RelabelConfig.Type)
           , basicAuth : Optional BasicAuth.Type
@@ -19,15 +20,16 @@ let RemoteWriteSpec =
           , queueConfig : Optional QueueConfig.Type
           }
       , default =
-        { remoteTimeout = None Text
-        , writeRelabelConfigs = None (List RelabelConfig.Type)
-        , basicAuth = None BasicAuth.Type
-        , bearerToken = None Text
-        , bearerTokenFile = None Text
-        , tlsConfig = None TLSConfig.Type
-        , proxyUrl = None Text
-        , queueConfig = None QueueConfig.Type
-        }
+          { name = None Text
+          , remoteTimeout = None Text
+          , writeRelabelConfigs = None (List RelabelConfig.Type)
+          , basicAuth = None BasicAuth.Type
+          , bearerToken = None Text
+          , bearerTokenFile = None Text
+          , tlsConfig = None TLSConfig.Type
+          , proxyUrl = None Text
+          , queueConfig = None QueueConfig.Type
+          }
       }
 
 let test = RemoteWriteSpec::{ url = "example.com" }
