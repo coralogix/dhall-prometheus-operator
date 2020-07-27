@@ -1,10 +1,9 @@
 { Type =
-  { paused : Bool
+    { paused : Bool
     , replicas : Natural
-      , updatedReplicas : Natural
-      , availableReplicas : Natural
-      , unavailableReplicas : Natural
-  }
-  , default = {=}
+    , updatedReplicas : Natural
+    , availableReplicas : Natural
+    , unavailableReplicas : Natural
+    }
+, default = {=}
 }
-

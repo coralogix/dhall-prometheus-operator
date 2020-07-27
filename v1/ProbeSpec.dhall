@@ -12,7 +12,9 @@ in  { Type =
         }
     , default =
         { jobName = None Text
+        , prober = None ProberSpec.Type
         , module = None Text
+        , targets = None ProbeTargets.Type
         , interval = None Text
         , scrapeTimeout = None Text
         }

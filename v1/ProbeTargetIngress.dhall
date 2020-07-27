@@ -11,5 +11,9 @@ in  { Type =
         , namespaceSelector : Optional NamespaceSelector
         , relabelingConfigs : Optional (List RelabelConfig.Type)
         }
-    , default = {=}
+    , default =
+        { selector = None Kubernetes.LabelSelector.Type
+        , namespaceSelector = None NamespaceSelector
+        , relabelingConfigs = None (List RelabelConfig.Type)
+        }
     }
