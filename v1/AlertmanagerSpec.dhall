@@ -13,9 +13,6 @@ let AlertmanagerSpec =
           { podMetadata : Optional EmbeddedObjectMetadata.Type
           , image : Optional Text
           , version : Optional Text
-          , tag : Optional Text
-          , sha : Optional Text
-          , baseImage : Optional Text
           , imagePullSecrets :
               Optional (List Kubernetes.LocalObjectReference.Type)
           , secrets : Optional (List Text)
@@ -49,9 +46,6 @@ let AlertmanagerSpec =
         { podMetadata = None EmbeddedObjectMetadata.Type
         , image = None Text
         , version = None Text
-        , tag = None Text
-        , sha = None Text
-        , baseImage = None Text
         , imagePullSecrets = None (List Kubernetes.LocalObjectReference.Type)
         , secrets = None (List Text)
         , configMaps = None (List Text)
