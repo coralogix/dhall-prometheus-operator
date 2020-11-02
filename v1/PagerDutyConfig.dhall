@@ -4,8 +4,7 @@ let Kubernetes = imports.Kubernetes
 
 let HTTPConfig = ./HTTPConfig.dhall
 
-let PagerDutyConfigDetail =
-      { Type = { key : Text, value : Text }, default = {=} }
+let PagerDutyConfigDetail = ./PagerDutyConfigDetail.dhall
 
 let PagerDutyConfig =
       { Type =

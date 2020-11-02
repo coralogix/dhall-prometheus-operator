@@ -6,33 +6,21 @@ let Route = ./Route.dhall
 
 let Receiver = ./Receiver.dhall
 
-let InhibitRules = ./InhibitRules.dhall
+let InhibitRule = ./InhibitRule.dhall
 
-let AlertmanagerConfigSpec
-    : ∀(_params : { routes : Type }) →
-        { Type : Type
-        , default :
-            { route : Optional _params.routes
-            , receivers : Optional (List Receiver.Type)
-            , inhibitRules : Optional (List InhibitRules.Type)
-            }
-        }
-    = λ(_params : { routes : Type }) →
-        { Type =
-            { route : Optional _params.routes
-            , receivers : Optional (List Receiver.Type)
-            , inhibitRules : Optional (List InhibitRules.Type)
-            }
-        , default =
-          { route = None _params.routes
-          , receivers = None (List Receiver.Type)
-          , inhibitRules = None (List InhibitRules.Type)
+let AlertmanagerConfigSpec =
+      { Type =
+          { route : Optional Route.Type
+          , receivers : Optional (List Receiver.Type)
+          , inhibitRules : Optional (List InhibitRule.Type)
           }
+      , default =
+        { route = None Route.Type
+        , receivers = None (List Receiver.Type)
+        , inhibitRules = None (List InhibitRule.Type)
         }
+      }
 
-let test =
-      let testConfigSpec = AlertmanagerConfigSpec { routes = <> }
-
-      in  testConfigSpec::{=}
+let test = AlertmanagerConfigSpec::{=}
 
 in  AlertmanagerConfigSpec

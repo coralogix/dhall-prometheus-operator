@@ -6,23 +6,9 @@ let BasicAuth = ./BasicAuth.dhall
 
 let HTTPConfig = ./HTTPConfig.dhall
 
-let OpsGenieConfigDetail =
-      { Type = { key : Text, value : Text }, default = {=} }
+let OpsGenieConfigDetail = ./OpsGenieConfigDetail.dhall
 
-let OpsGenieConfigResponder =
-      { Type =
-          { id : Optional Text
-          , name : Optional Text
-          , username : Optional Text
-          , type : Optional Text
-          }
-      , default =
-        { id = None Text
-        , name = None Text
-        , username = None Text
-        , type = None Text
-        }
-      }
+let OpsGenieConfigResponder = ./OpsGenieConfigResponder.dhall
 
 let OpsGenieConfig =
       { Type =

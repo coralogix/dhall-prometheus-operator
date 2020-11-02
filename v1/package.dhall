@@ -155,34 +155,43 @@
       ./PrometheusRuleExcludeConfig.dhall sha256:9de82d0ac332d06b3cca9e96dee8208689bd3e0281f5f807361d4a72109fca18
     ? ./PrometheusRuleExcludeConfig.dhall
 , AlertmanagerConfig =
-      ./AlertmanagerConfig.dhall sha256:f1c8eea096ed844c195bb89b619588c93f14b9615984e1fc3b400f6ddb65d5a9
+      ./AlertmanagerConfig.dhall sha256:532e328e13b10223fcac389ddefb919bd51b78161fabdc88b11b2bd7500bb0cd
     ? ./AlertmanagerConfig.dhall
 , AlertmanagerConfigList =
-      ./AlertmanagerConfigList.dhall sha256:a422df22a7066f0b33f1f52deb09d972783c0f0049e4b3ed8cab1c554369fdba
+      ./AlertmanagerConfigList.dhall sha256:f499b1aa3ae756824ebdf2c85c510dc6082fccd14ce1acad2844d5b1693e1529
     ? ./AlertmanagerConfigList.dhall
 , AlertmanagerConfigSpec =
-      ./AlertmanagerConfigSpec.dhall sha256:567b83a5c3e19386d66ccb9cdfa5b493eb73427fb6c4fecfeaf5bea83c05c92e
+      ./AlertmanagerConfigSpec.dhall sha256:a9592e4d071075a25c9e7ca511bfd6281e946a45e02f23501b73b47f61373136
     ? ./AlertmanagerConfigSpec.dhall
 , HTTPConfig =
       ./HTTPConfig.dhall sha256:b33237d271ba53c43ad70ee79463355d929ee65040d413c0f15ef3e3071af17f
     ? ./HTTPConfig.dhall
-, InhibitRules =
-      ./InhibitRules.dhall sha256:a2c058aaf87549e02bf31cdd9cb1d45e386faffc98c53a6fc964a64f894c758c
-    ? ./InhibitRules.dhall
+, InhibitRule =
+      ./InhibitRule.dhall sha256:a2c058aaf87549e02bf31cdd9cb1d45e386faffc98c53a6fc964a64f894c758c
+    ? ./InhibitRule.dhall
 , Matcher =
       ./Matcher.dhall sha256:c8519226bf49d086fafacdac890df38fb63e10921984abfd2787e78aa3d90f3c
     ? ./Matcher.dhall
 , OpsGenieConfig =
       ./OpsGenieConfig.dhall sha256:84b0d36296b8dadd9eee814be280e7f594fa35679153cedfad52212edd9a64af
     ? ./OpsGenieConfig.dhall
+, OpsGenieConfigDetail =
+      ./OpsGenieConfigDetail.dhall sha256:9bb842a44771c837f8f1d7a39c837ff7821ff436f4b198bdfcce0a681dc08b2e
+    ? ./OpsGenieConfigDetail.dhall
+, OpsGenieConfigResponder =
+      ./OpsGenieConfigResponder.dhall sha256:49d9e33fa13b200230a0f65b12ff4fcbe5675b4cf5dbaf9b64d9797899300587
+    ? ./OpsGenieConfigResponder.dhall
 , PagerDutyConfig =
       ./PagerDutyConfig.dhall sha256:3cdffab07520af478c569df8ea1f5ebba3961c9a050f050fb1b981def67a689c
     ? ./PagerDutyConfig.dhall
+, PagerDutyConfigDetail =
+      ./PagerDutyConfigDetail.dhall sha256:9bb842a44771c837f8f1d7a39c837ff7821ff436f4b198bdfcce0a681dc08b2e
+    ? ./PagerDutyConfigDetail.dhall
 , Receiver =
       ./Receiver.dhall sha256:10acdd3e184cf84e1fa59db34d56fe926c9d661ac4a1b39adf4eabffcdb90564
     ? ./Receiver.dhall
 , Route =
-      ./Route.dhall sha256:35349aa6b91e041d8271a43aee31a20a0519853ae44bd4c408081112836225ac
+      ./Route.dhall sha256:775ebfdb049407b1fea57b00d0f5ae97ee9552a7809a5a7d88bb8bdc350b97b0
     ? ./Route.dhall
 , SafeTLSConfig =
       ./SafeTLSConfig.dhall sha256:33847e3bc9669b8e4666acb3deed9cd271ef5f45d4bfe1b36f0f416b4442c39d

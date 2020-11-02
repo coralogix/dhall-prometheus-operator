@@ -2,7 +2,7 @@ let imports = ../imports.dhall
 
 let Matcher = ./Matcher.dhall
 
-let InhibitRules =
+let InhibitRule =
       { Type =
           { targetMatch : Optional (List Matcher.Type)
           , sourceMatch : Optional (List Matcher.Type)
@@ -15,4 +15,4 @@ let InhibitRules =
         }
       }
 
-in  InhibitRules
+in  InhibitRule
