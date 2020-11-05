@@ -2,16 +2,16 @@
       ./AlertingSpec.dhall sha256:52eda44bf78897f22556cb0e00c1fa067c990b3519679d71becd06496a07b65b
     ? ./AlertingSpec.dhall
 , Alertmanager =
-      ./Alertmanager.dhall sha256:20956bbe3f1582953cebb82955c65c63b834f2aff061c14b7e4800513cb6e4c4
+      ./Alertmanager.dhall sha256:ab9098ecd3caa94bf0dc29c05bf2a02d010daae67953fbf8b40c9feb21d634e9
     ? ./Alertmanager.dhall
 , AlertmanagerEndpoints =
       ./AlertmanagerEndpoints.dhall sha256:657330a240aa8ebb9e2c603b603a0f8645dcb8f6c90ea8341d46d8acd30b0200
     ? ./AlertmanagerEndpoints.dhall
 , AlertmanagerList =
-      ./AlertmanagerList.dhall sha256:8d5df85eced69289e495d833ea2531221070beecb5264152ade0e3c4f5f6d7ad
+      ./AlertmanagerList.dhall sha256:cc7db896b5d6a7050c593d31d22bf12d40b43a7993356221a19553d10ec4819f
     ? ./AlertmanagerList.dhall
 , AlertmanagerSpec =
-      ./AlertmanagerSpec.dhall sha256:1013f69f002a278c78a7a9277530e4ebbd31d27de8484a1635ca9025288effb9
+      ./AlertmanagerSpec.dhall sha256:2e01345a2e259bc8b18a33511397d4a86d363f98dee4d1ab3f70104e0ba40734
     ? ./AlertmanagerSpec.dhall
 , AlertmanagerStatus =
       ./AlertmanagerStatus.dhall sha256:e2d018badce51e5389191631b0168799b07c220ce6a89945ec1c2732d5a5cb2e
@@ -65,10 +65,10 @@
       ./ProberSpec.dhall sha256:12aa19e0e0a2a32ed6e8f609df1071e5348d539e9d7374dcde15b35a0f13900b
     ? ./ProberSpec.dhall
 , Prometheus =
-      ./Prometheus.dhall sha256:f2b4f11451b000d7a15303ced1d32da21db9f97b5e98f31275094e7f109e47e7
+      ./Prometheus.dhall sha256:d5984747b39f14d52654d2f5dcab18af4b28a72485c079b42a23f1379d65c6dd
     ? ./Prometheus.dhall
 , PrometheusList =
-      ./PrometheusList.dhall sha256:57922a99ba9f5f10f47247df32299e289d082bba470642b6d4fa8ffd9e1930e8
+      ./PrometheusList.dhall sha256:003344480645c25bb88cae42166a036b9703a0f520b5a0fd60229025698f3e24
     ? ./PrometheusList.dhall
 , PrometheusRule =
       ./PrometheusRule.dhall sha256:910a4b62fbdd3459f77fb5b845c3dd6c398a8d13e9d7ea0139af7c78aa2eedbb
@@ -80,7 +80,7 @@
       ./PrometheusRuleSpec.dhall sha256:6367393e472d943d60b8ebc6b93c3dccc2aa89bd8b134be375288fb7e5ba360f
     ? ./PrometheusRuleSpec.dhall
 , PrometheusSpec =
-      ./PrometheusSpec.dhall sha256:578added7b0bdab5fec62d48a97dd13c2e0f1ec2be2b20275c3bc3feb5678f8c
+      ./PrometheusSpec.dhall sha256:70672949f75cf3180e22c2bc717e8bd917089501d87a7f7af91d9b479c69ea34
     ? ./PrometheusSpec.dhall
 , PrometheusStatus =
       ./PrometheusStatus.dhall sha256:e2d018badce51e5389191631b0168799b07c220ce6a89945ec1c2732d5a5cb2e
@@ -125,19 +125,19 @@
       ./ServiceMonitorSpec.dhall sha256:6807995c85cd8912fb9af66f9e5112006f0970d2a034512947aa275e548b56dd
     ? ./ServiceMonitorSpec.dhall
 , StorageSpec =
-      ./StorageSpec.dhall sha256:ed60563a0ff374409f1dc2e61cd577864f78d43b854c1e272bf6d1526bc3e7fc
+      ./StorageSpec.dhall sha256:9814d8bbc81a48df58462afcdd9d668a8968ccef3e8b329e2a0a3ac26d7b4561
     ? ./StorageSpec.dhall
 , ThanosSpec =
       ./ThanosSpec.dhall sha256:c9e26e61bf4bab7ed01c9b2de1a09d2a2323a5dfbc20669f68c1b4271166308c
     ? ./ThanosSpec.dhall
 , ThanosRuler =
-      ./ThanosRuler.dhall sha256:8b0c8a0a1335e400b501c64008af7d96f4e6f9474e77434ba79b0ec463c8a2a4
+      ./ThanosRuler.dhall sha256:4e8956f4f93c04041603ca3424dc963991d5b13d863598bb6b4150604d468201
     ? ./ThanosRuler.dhall
 , ThanosRulerList =
-      ./ThanosRulerList.dhall sha256:aaebed3925e3c937e5ac06cea269bdd7c7c9e5c7b77ee91f100d390688b7637e
+      ./ThanosRulerList.dhall sha256:e9c644fdff9701a5eb8bb71a2caeabdb3146e3033198f42534f55e3abc84c78f
     ? ./ThanosRulerList.dhall
 , ThanosRulerSpec =
-      ./ThanosRulerSpec.dhall sha256:b7680e582141de9336c2d51c1e2bd6d5be27bbc122264d848da41ec25dae268e
+      ./ThanosRulerSpec.dhall sha256:c572bca2f79245fdf050e13327cceb8eda1f59a6e40a766daed5aab3303a30e7
     ? ./ThanosRulerSpec.dhall
 , ThanosRulerStatus =
       ./ThanosRulerStatus.dhall sha256:e2d018badce51e5389191631b0168799b07c220ce6a89945ec1c2732d5a5cb2e

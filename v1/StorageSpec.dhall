@@ -6,10 +6,12 @@ let EmbeddedPersistentVolumeClaim = ./EmbeddedPersistentVolumeClaim.dhall
 
 let Common = { disableMountSubPath : Optional Bool }
 
-let EmptyDir = Common ⩓ { emptyDir : Kubernetes.EmptyDirVolumeSource.Type }
+let EmptyDir =
+      Common ⩓ { emptyDir : Optional Kubernetes.EmptyDirVolumeSource.Type }
 
 let VolumeClaimTemplate =
-      Common ⩓ { volumeClaimTemplate : EmbeddedPersistentVolumeClaim.Type }
+        Common
+      ⩓ { volumeClaimTemplate : Optional EmbeddedPersistentVolumeClaim.Type }
 
 let common = { disableMountSubPath = None Bool }
 
@@ -29,13 +31,13 @@ let test =
               StorageSpec.Type.EmptyDir
                 StorageSpec.EmptyDir::{
                 , disableMountSubPath = Some True
-                , emptyDir = Kubernetes.EmptyDirVolumeSource::{=}
+                , emptyDir = Some Kubernetes.EmptyDirVolumeSource::{=}
                 }
           , volumeClaimTemplate =
               StorageSpec.Type.VolumeClaimTemplate
                 StorageSpec.VolumeClaimTemplate::{
                 , disableMountSubPath = Some True
-                , volumeClaimTemplate = EmbeddedPersistentVolumeClaim::{=}
+                , volumeClaimTemplate = Some EmbeddedPersistentVolumeClaim::{=}
                 }
           }
 
