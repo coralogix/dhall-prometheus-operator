@@ -8,7 +8,7 @@ let WebhookConfig = ./WebhookConfig.dhall
 
 let WeChatConfig = ./WeChatConfig.dhall
 
-let Reciver =
+let Receiver =
       { Type =
           { name : Text
           , opsgenieConfigs : Optional (List OpsGenieConfig.Type)
@@ -24,6 +24,6 @@ let Reciver =
         }
       }
 
-let test = Reciver::{ name = "reciver" }
+let test = Receiver::{ name = "reciver" }
 
-in  Reciver
+in  Receiver

@@ -15,7 +15,7 @@ let Route =
             , continue : Optional Bool
             }
 
-      in  { Type = Route ⩓ { routes : Optional Route }
+      in  { Type = Route ⩓ { routes : Optional (List Route) }
           , default =
             { receiver = None Text
             , groupBy = None (List Text)
@@ -24,7 +24,7 @@ let Route =
             , repeatInterval = None Text
             , matchers = None (List Matcher.Type)
             , continue = None Bool
-            , routes = None Route
+            , routes = None (List Route)
             }
           }
 
