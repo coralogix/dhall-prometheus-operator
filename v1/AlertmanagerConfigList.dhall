@@ -7,19 +7,25 @@ let AlertmanagerConfigSpec = ./AlertmanagerConfigSpec.dhall
 let AlertmanagerConfig = ./AlertmanagerConfig.dhall
 
 let AlertmanagerConfigList =
-      { Type =
-          { apiVersion : Text
-          , kind : Text
-          , metadata : Optional Kubernetes.ObjectMeta.Type
-          , items : List AlertmanagerConfig.Type
+      λ(ConfigSpec : Type) →
+        { Type =
+            { apiVersion : Text
+            , kind : Text
+            , metadata : Optional Kubernetes.ObjectMeta.Type
+            , items : List ConfigSpec
+            }
+        , default =
+          { apiVersion = "monitoring.coreos.com/v1"
+          , kind = "AlertmanagerConfigList"
+          , metadata = None Kubernetes.ObjectMeta.Type
           }
-      , default =
-        { apiVersion = "monitoring.coreos.com/v1"
-        , kind = "AlertmanagerConfigList"
-        , metadata = None Kubernetes.ObjectMeta.Type
         }
-      }
 
-let test = AlertmanagerConfigList::{ items = [] : List AlertmanagerConfig.Type }
+let test =
+      let ConfigSpec = ./AlertmanagerConfig.dhall <>
+
+      in  (AlertmanagerConfigList ConfigSpec.Type)::{
+          , items = [] : List ConfigSpec.Type
+          }
 
 in  AlertmanagerConfigList
