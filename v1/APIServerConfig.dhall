@@ -2,7 +2,7 @@ let BasicAuth = ./BasicAuth.dhall
 
 let TLSConfig = ./TLSConfig.dhall
 
-let Common = { host : Optional Text, tlsConfig : Optional TLSConfig.Type }
+let Common = { host : Text, tlsConfig : Optional TLSConfig.Type }
 
 let BasicAuth = Common ⩓ { basicAuth : Optional BasicAuth.Type }
 
@@ -31,7 +31,7 @@ let test =
       in  { basicAuth =
               APIServerConfig.Type.BasicAuth
                 APIServerConfig.BasicAuth::{
-                , host = Some "example.com"
+                , host = "example.com"
                 , basicAuth = Some BasicAuth::{
                   , username = Kubernetes.SecretKeySelector::{
                     , key = "example-username-key"
@@ -44,13 +44,13 @@ let test =
           , bearerToken =
               APIServerConfig.Type.BearerToken
                 APIServerConfig.BearerToken::{
-                , host = Some "example.com"
+                , host = "example.com"
                 , bearerToken = Some "example"
                 }
           , bearerTokenFile =
               APIServerConfig.Type.BearerTokenFile
                 APIServerConfig.BearerTokenFile::{
-                , host = Some "example.com"
+                , host = "example.com"
                 , bearerTokenFile = Some "path/to/example"
                 }
           }

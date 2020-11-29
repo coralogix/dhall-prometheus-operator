@@ -24,6 +24,6 @@ let Receiver =
         }
       }
 
-let test = Receiver::{ name = "reciver" }
+let test = Receiver::{ name = "receiver" }
 
 in  Receiver

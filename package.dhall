@@ -1,4 +1,4 @@
 { v1 =
-      ./v1/package.dhall sha256:73cb45d25918cd3b70a6402241ab0c170fe1b5dd937718c9844c19b3a98bd897
+      ./v1/package.dhall sha256:5a12a4a3410f694eaa742fb99300229f1b9dd306ccf9c4afce4045093bfff8eb
     ? ./v1/package.dhall
 }
