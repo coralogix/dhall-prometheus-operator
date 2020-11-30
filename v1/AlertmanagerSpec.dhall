@@ -41,6 +41,9 @@ let AlertmanagerSpec =
           , additionalPeers : Optional (List Text)
           , clusterAdvertiseAddress : Optional Text
           , portName : Optional Text
+          , alertmanagerConfigSelector : Optional Kubernetes.LabelSelector.Type
+          , alertmanagerConfigNamespaceSelector :
+              Optional Kubernetes.LabelSelector.Type
           }
       , default =
         { podMetadata = None EmbeddedObjectMetadata.Type
@@ -73,6 +76,9 @@ let AlertmanagerSpec =
         , additionalPeers = None (List Text)
         , clusterAdvertiseAddress = None Text
         , portName = None Text
+        , alertmanagerConfigSelector = None Kubernetes.LabelSelector.Type
+        , alertmanagerConfigNamespaceSelector =
+            None Kubernetes.LabelSelector.Type
         }
       }
 
