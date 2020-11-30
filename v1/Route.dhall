@@ -14,7 +14,7 @@ let Route =
             , repeatInterval : Optional Text
             , matchers : Optional (List Matcher.Type)
             , continue : Optional Bool
-            , route : Optional RouteObject
+            , routes : Optional (List RouteObject)
             }
         , default =
           { receiver = None Text
@@ -24,8 +24,10 @@ let Route =
           , repeatInterval = None Text
           , matchers = None (List Matcher.Type)
           , continue = None Bool
-          , routes = None RouteObject
+          , routes = None (List RouteObject)
           }
         }
+
+let test = (Route <>)::{=}
 
 in  Route
