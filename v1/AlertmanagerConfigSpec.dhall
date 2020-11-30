@@ -6,7 +6,7 @@ let Receiver = ./Receiver.dhall
 
 let InhibitRule = ./InhibitRule.dhall
 
-let AlertmanagerConfigSpec =
+let Generator =
       λ(Route : Type) →
         { Type =
             { route : Optional Route
@@ -20,6 +20,13 @@ let AlertmanagerConfigSpec =
           }
         }
 
-let test = (AlertmanagerConfigSpec <>)::{=}
+let test = (Generator <>)::{=}
 
-in  AlertmanagerConfigSpec
+let Simple =
+      let Route = ./Route.dhall
+
+      let SimpleRootRoute = Route.Root
+
+      in  Generator SimpleRootRoute.Type
+
+in  { Generator, Simple }

@@ -2,7 +2,9 @@ let imports = ../imports.dhall
 
 let Kubernetes = imports.Kubernetes
 
-let AlertmanagerConfig =
+let AlertmanagerConfigSpec = ./AlertmanagerConfigSpec.dhall
+
+let Generator =
       λ(ConfigSpec : Type) →
         { Type =
             { apiVersion : Text
@@ -18,8 +20,10 @@ let AlertmanagerConfig =
         }
 
 let test =
-      let ConfigSpec = ./AlertmanagerConfigSpec.dhall <>
+      (Generator AlertmanagerConfigSpec.Simple.Type)::{
+      , spec = AlertmanagerConfigSpec.Simple::{=}
+      }
 
-      in  (AlertmanagerConfig ConfigSpec.Type)::{ spec = ConfigSpec::{=} }
+let Simple = Generator AlertmanagerConfigSpec.Simple.Type
 
-in  AlertmanagerConfig
+in  { Generator, Simple }

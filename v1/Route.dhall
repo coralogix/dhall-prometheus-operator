@@ -4,7 +4,7 @@ let Kubernetes = imports.Kubernetes
 
 let Matcher = ./Matcher.dhall
 
-let Route =
+let Generator =
       λ(RouteObject : Type) →
         { Type =
             { receiver : Optional Text
@@ -28,6 +28,10 @@ let Route =
           }
         }
 
-let test = (Route <>)::{=}
+let test = (Generator <>)::{=}
 
-in  Route
+let Child = Generator <>
+
+let Root = Generator Child.Type
+
+in  { Generator, Child, Root }
