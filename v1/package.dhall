@@ -191,7 +191,7 @@
       ./Receiver.dhall sha256:10acdd3e184cf84e1fa59db34d56fe926c9d661ac4a1b39adf4eabffcdb90564
     ? ./Receiver.dhall
 , Route =
-      ./Route.dhall sha256:666653eb4f7c195f52433b4f38ca092357e4a7b3b1cc250552c9567284401b8e
+      ./Route.dhall sha256:ac3fc5e02f8e333ea4cc2fa209b8ac3dcb4776ea3ea93c0370e8f9723fe69d0a
     ? ./Route.dhall
 , SafeTLSConfig =
       ./SafeTLSConfig.dhall sha256:33847e3bc9669b8e4666acb3deed9cd271ef5f45d4bfe1b36f0f416b4442c39d
