@@ -2,22 +2,22 @@
       ./AlertingSpec.dhall sha256:52eda44bf78897f22556cb0e00c1fa067c990b3519679d71becd06496a07b65b
     ? ./AlertingSpec.dhall
 , Alertmanager =
-      ./Alertmanager.dhall sha256:5ebee7d6095e23a7e91eaaac40511e3bc49d1d343bafb5ad3edf9b6b6b9785a7
+      ./Alertmanager.dhall sha256:d0e371ad6b28ad4ae09e006aa77fa6bfddcddc906e5edf4d81ef027d07bed2f0
     ? ./Alertmanager.dhall
 , AlertmanagerEndpoints =
       ./AlertmanagerEndpoints.dhall sha256:657330a240aa8ebb9e2c603b603a0f8645dcb8f6c90ea8341d46d8acd30b0200
     ? ./AlertmanagerEndpoints.dhall
 , AlertmanagerList =
-      ./AlertmanagerList.dhall sha256:ed35f76a1d8a35341f1c9ce6954e6d7ebac93df0c76ff72965ee3dfeaa5de3f6
+      ./AlertmanagerList.dhall sha256:84d99d3932eb090aa2798e50a6ef09606ca6254af22baecd44561973a85d7761
     ? ./AlertmanagerList.dhall
 , AlertmanagerSpec =
-      ./AlertmanagerSpec.dhall sha256:3cad3ac718323dbfd46b30170476699d70d1e17fe4b72a461be049503a6e350c
+      ./AlertmanagerSpec.dhall sha256:677f4533ae093d75150563866a547285ebc85cf89a771d5d4647485957d8881c
     ? ./AlertmanagerSpec.dhall
 , AlertmanagerStatus =
       ./AlertmanagerStatus.dhall sha256:e2d018badce51e5389191631b0168799b07c220ce6a89945ec1c2732d5a5cb2e
     ? ./AlertmanagerStatus.dhall
 , APIServerConfig =
-      ./APIServerConfig.dhall sha256:6a4134a9509e03695083c42c462a878ebe53e9acd18fb008f623ed45d30c9b0c
+      ./APIServerConfig.dhall sha256:26445538bef8b140e36b52b2915466053d7eabdbde9a744a58ec874fef1f1f98
     ? ./APIServerConfig.dhall
 , ArbitraryFSAccessThroughSMsConfig =
       ./ArbitraryFSAccessThroughSMsConfig.dhall sha256:5da9e232ecba3823ce2f918148b8ba813e795426f795f227f198aac9225d62d7
@@ -65,10 +65,10 @@
       ./ProberSpec.dhall sha256:12aa19e0e0a2a32ed6e8f609df1071e5348d539e9d7374dcde15b35a0f13900b
     ? ./ProberSpec.dhall
 , Prometheus =
-      ./Prometheus.dhall sha256:1b2ed1e44805a9fea0c9bb962470c5a6e7db2b7e9c34703ff6bcc4bc4f9c5456
+      ./Prometheus.dhall sha256:2f25e32cb42df053267a4dee3ad4d81086fecc07a57c2177bea1ecd966f9bcbe
     ? ./Prometheus.dhall
 , PrometheusList =
-      ./PrometheusList.dhall sha256:646714010cfb27c0cdbe5946c790c7cf53c8268d9a21c249cea1e39a4a411d63
+      ./PrometheusList.dhall sha256:df80af2cda119f17013fb32b2ef5073dff6d7726595141d59edf3d1dcfc1d3c5
     ? ./PrometheusList.dhall
 , PrometheusRule =
       ./PrometheusRule.dhall sha256:910a4b62fbdd3459f77fb5b845c3dd6c398a8d13e9d7ea0139af7c78aa2eedbb
@@ -80,7 +80,7 @@
       ./PrometheusRuleSpec.dhall sha256:6367393e472d943d60b8ebc6b93c3dccc2aa89bd8b134be375288fb7e5ba360f
     ? ./PrometheusRuleSpec.dhall
 , PrometheusSpec =
-      ./PrometheusSpec.dhall sha256:f5a4b7fff5c25485b82289581a9bca2f89fc1503abab748ad9bd67afb7016b2b
+      ./PrometheusSpec.dhall sha256:07b7228551d136ba403f475bade4252eb123b3b4768723238aa99d5a9a4d674a
     ? ./PrometheusSpec.dhall
 , PrometheusStatus =
       ./PrometheusStatus.dhall sha256:e2d018badce51e5389191631b0168799b07c220ce6a89945ec1c2732d5a5cb2e
@@ -125,19 +125,19 @@
       ./ServiceMonitorSpec.dhall sha256:6807995c85cd8912fb9af66f9e5112006f0970d2a034512947aa275e548b56dd
     ? ./ServiceMonitorSpec.dhall
 , StorageSpec =
-      ./StorageSpec.dhall sha256:ed60563a0ff374409f1dc2e61cd577864f78d43b854c1e272bf6d1526bc3e7fc
+      ./StorageSpec.dhall sha256:9814d8bbc81a48df58462afcdd9d668a8968ccef3e8b329e2a0a3ac26d7b4561
     ? ./StorageSpec.dhall
 , ThanosSpec =
-      ./ThanosSpec.dhall sha256:660be6e7b7725ca9b8f88fb5d7d28f2625e5583b86d260991a732baa47b125cd
+      ./ThanosSpec.dhall sha256:c9e26e61bf4bab7ed01c9b2de1a09d2a2323a5dfbc20669f68c1b4271166308c
     ? ./ThanosSpec.dhall
 , ThanosRuler =
-      ./ThanosRuler.dhall sha256:8b0c8a0a1335e400b501c64008af7d96f4e6f9474e77434ba79b0ec463c8a2a4
+      ./ThanosRuler.dhall sha256:4e8956f4f93c04041603ca3424dc963991d5b13d863598bb6b4150604d468201
     ? ./ThanosRuler.dhall
 , ThanosRulerList =
-      ./ThanosRulerList.dhall sha256:aaebed3925e3c937e5ac06cea269bdd7c7c9e5c7b77ee91f100d390688b7637e
+      ./ThanosRulerList.dhall sha256:e9c644fdff9701a5eb8bb71a2caeabdb3146e3033198f42534f55e3abc84c78f
     ? ./ThanosRulerList.dhall
 , ThanosRulerSpec =
-      ./ThanosRulerSpec.dhall sha256:b7680e582141de9336c2d51c1e2bd6d5be27bbc122264d848da41ec25dae268e
+      ./ThanosRulerSpec.dhall sha256:c572bca2f79245fdf050e13327cceb8eda1f59a6e40a766daed5aab3303a30e7
     ? ./ThanosRulerSpec.dhall
 , ThanosRulerStatus =
       ./ThanosRulerStatus.dhall sha256:e2d018badce51e5389191631b0168799b07c220ce6a89945ec1c2732d5a5cb2e
@@ -154,4 +154,52 @@
 , PrometheusRuleExcludeConfig =
       ./PrometheusRuleExcludeConfig.dhall sha256:9de82d0ac332d06b3cca9e96dee8208689bd3e0281f5f807361d4a72109fca18
     ? ./PrometheusRuleExcludeConfig.dhall
+, AlertmanagerConfig =
+      ./AlertmanagerConfig.dhall sha256:59d53831bb880e77892594c5cf78069416ca514b1be4de25ffc8d5b8d9ed26bd
+    ? ./AlertmanagerConfig.dhall
+, AlertmanagerConfigList =
+      ./AlertmanagerConfigList.dhall sha256:245f6f4002bdaf58e4fef2cbb61b32d3a495c5b47a2aeaa271b7e986cb1b9876
+    ? ./AlertmanagerConfigList.dhall
+, AlertmanagerConfigSpec =
+      ./AlertmanagerConfigSpec.dhall sha256:b9487178302a27b6ff8aa47180cd23c9be20471436fe8981dceb8be28e4d09da
+    ? ./AlertmanagerConfigSpec.dhall
+, HTTPConfig =
+      ./HTTPConfig.dhall sha256:b33237d271ba53c43ad70ee79463355d929ee65040d413c0f15ef3e3071af17f
+    ? ./HTTPConfig.dhall
+, InhibitRule =
+      ./InhibitRule.dhall sha256:a2c058aaf87549e02bf31cdd9cb1d45e386faffc98c53a6fc964a64f894c758c
+    ? ./InhibitRule.dhall
+, Matcher =
+      ./Matcher.dhall sha256:c8519226bf49d086fafacdac890df38fb63e10921984abfd2787e78aa3d90f3c
+    ? ./Matcher.dhall
+, OpsGenieConfig =
+      ./OpsGenieConfig.dhall sha256:84b0d36296b8dadd9eee814be280e7f594fa35679153cedfad52212edd9a64af
+    ? ./OpsGenieConfig.dhall
+, OpsGenieConfigDetail =
+      ./OpsGenieConfigDetail.dhall sha256:9bb842a44771c837f8f1d7a39c837ff7821ff436f4b198bdfcce0a681dc08b2e
+    ? ./OpsGenieConfigDetail.dhall
+, OpsGenieConfigResponder =
+      ./OpsGenieConfigResponder.dhall sha256:49d9e33fa13b200230a0f65b12ff4fcbe5675b4cf5dbaf9b64d9797899300587
+    ? ./OpsGenieConfigResponder.dhall
+, PagerDutyConfig =
+      ./PagerDutyConfig.dhall sha256:3cdffab07520af478c569df8ea1f5ebba3961c9a050f050fb1b981def67a689c
+    ? ./PagerDutyConfig.dhall
+, PagerDutyConfigDetail =
+      ./PagerDutyConfigDetail.dhall sha256:9bb842a44771c837f8f1d7a39c837ff7821ff436f4b198bdfcce0a681dc08b2e
+    ? ./PagerDutyConfigDetail.dhall
+, Receiver =
+      ./Receiver.dhall sha256:10acdd3e184cf84e1fa59db34d56fe926c9d661ac4a1b39adf4eabffcdb90564
+    ? ./Receiver.dhall
+, Route =
+      ./Route.dhall sha256:07329d1a72d3e3a3410cf74e7295b095a20cbf2c21da9a5b60f907300590914d
+    ? ./Route.dhall
+, SafeTLSConfig =
+      ./SafeTLSConfig.dhall sha256:33847e3bc9669b8e4666acb3deed9cd271ef5f45d4bfe1b36f0f416b4442c39d
+    ? ./SafeTLSConfig.dhall
+, WeChatConfig =
+      ./WeChatConfig.dhall sha256:943fb7fe1350e90d8d5af7d34c9177b9a3421ff47b680ea38514b839dca7e3db
+    ? ./WeChatConfig.dhall
+, WebhookConfig =
+      ./WebhookConfig.dhall sha256:6381e39d10d4bfa438ee66d2aa394795713b273593c786e7612f4aa441b038f3
+    ? ./WebhookConfig.dhall
 }

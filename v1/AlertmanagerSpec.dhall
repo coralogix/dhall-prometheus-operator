@@ -13,9 +13,6 @@ let AlertmanagerSpec =
           { podMetadata : Optional EmbeddedObjectMetadata.Type
           , image : Optional Text
           , version : Optional Text
-          , tag : Optional Text
-          , sha : Optional Text
-          , baseImage : Optional Text
           , imagePullSecrets :
               Optional (List Kubernetes.LocalObjectReference.Type)
           , secrets : Optional (List Text)
@@ -44,14 +41,14 @@ let AlertmanagerSpec =
           , additionalPeers : Optional (List Text)
           , clusterAdvertiseAddress : Optional Text
           , portName : Optional Text
+          , alertmanagerConfigSelector : Optional Kubernetes.LabelSelector.Type
+          , alertmanagerConfigNamespaceSelector :
+              Optional Kubernetes.LabelSelector.Type
           }
       , default =
         { podMetadata = None EmbeddedObjectMetadata.Type
         , image = None Text
         , version = None Text
-        , tag = None Text
-        , sha = None Text
-        , baseImage = None Text
         , imagePullSecrets = None (List Kubernetes.LocalObjectReference.Type)
         , secrets = None (List Text)
         , configMaps = None (List Text)
@@ -79,6 +76,9 @@ let AlertmanagerSpec =
         , additionalPeers = None (List Text)
         , clusterAdvertiseAddress = None Text
         , portName = None Text
+        , alertmanagerConfigSelector = None Kubernetes.LabelSelector.Type
+        , alertmanagerConfigNamespaceSelector =
+            None Kubernetes.LabelSelector.Type
         }
       }
 

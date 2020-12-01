@@ -37,11 +37,8 @@ in  { Type =
         , probeSelector : Optional Kubernetes.LabelSelector.Type
         , probeNamespaceSelector : Optional Kubernetes.LabelSelector.Type
         , version : Optional Text
-        , tag : Optional Text
-        , sha : Optional Text
         , paused : Optional Bool
         , image : Optional Text
-        , baseImage : Optional Text
         , imagePullSecrets :
             Optional (List Kubernetes.LocalObjectReference.Type)
         , replicas : Optional Natural
@@ -103,74 +100,71 @@ in  { Type =
         , allowOverlappingBlocks : Optional Bool
         }
     , default =
-        { podMetadata = None EmbeddedObjectMetadata.Type
-        , serviceMonitorSelector = None Kubernetes.LabelSelector.Type
-        , serviceMonitorNamespaceSelector = None Kubernetes.LabelSelector.Type
-        , podMonitorSelector = None Kubernetes.LabelSelector.Type
-        , podMonitorNamespaceSelector = None Kubernetes.LabelSelector.Type
-        , probeSelector = None Kubernetes.LabelSelector.Type
-        , probeNamespaceSelector = None Kubernetes.LabelSelector.Type
-        , version = None Text
-        , tag = None Text
-        , sha = None Text
-        , paused = None Bool
-        , image = None Text
-        , baseImage = None Text
-        , imagePullSecrets = None (List Kubernetes.LocalObjectReference.Type)
-        , replicas = None Natural
-        , replicaExternalLabelName = None Text
-        , prometheusExternalLabelName = None Text
-        , retention = None Text
-        , retentionSize = None Text
-        , disableCompaction = None Bool
-        , walCompression = None Bool
-        , logLevel = None Text
-        , logFormat = None Text
-        , scrapeInterval = None Text
-        , scrapeTimeout = None Text
-        , evaluationInterval = None Text
-        , rules = None Rules.Type
-        , externalLabels = None (Map Text Text)
-        , enableAdminAPI = None Bool
-        , externalUrl = None Text
-        , routePrefix = None Text
-        , query = None QuerySpec.Type
-        , storage = None StorageSpec.Type
-        , volumes = None (List Kubernetes.Volume.Type)
-        , volumeMounts = None (List Kubernetes.VolumeMount.Type)
-        , ruleSelector = None Kubernetes.LabelSelector.Type
-        , ruleNamespaceSelector = None Kubernetes.LabelSelector.Type
-        , alerting = None AlertingSpec.Type
-        , resources = None Kubernetes.ResourceRequirements.Type
-        , nodeSelector = None (Map Text Text)
-        , serviceAccountName = None Text
-        , secrets = None (List Text)
-        , configMaps = None (List Text)
-        , affinity = None Kubernetes.Affinity.Type
-        , tolerations = None (List Kubernetes.Toleration.Type)
-        , remoteWrite = None (List RemoteWriteSpec.Type)
-        , remoteRead = None (List RemoteReadSpec.Type)
-        , securityContext = None Kubernetes.PodSecurityContext.Type
-        , listenLocal = None Bool
-        , containers = None (List Kubernetes.Container.Type)
-        , initContainers = None (List Kubernetes.Container.Type)
-        , additionalScrapeConfigs = None Kubernetes.SecretKeySelector.Type
-        , additionalAlertRelabelConfigs = None Kubernetes.SecretKeySelector.Type
-        , additionalAlertManagerConfigs = None Kubernetes.SecretKeySelector.Type
-        , apiserverConfig = None APIServerConfig.Type
-        , thanos = None ThanosSpec.Type
-        , priorityClassName = None Text
-        , portName = None Text
-        , arbitraryFSAccessThroughSMs =
-            None ArbitraryFSAccessThroughSMsConfig.Type
-        , overrideHonorLabels = None Bool
-        , overrideHonorTimestamps = None Bool
-        , ignoreNamespaceSelectors = None Bool
-        , enforcedNamespaceLabel = None Text
-        , prometheusRulesExcludedFromEnforce =
-            None (List PrometheusRuleExcludeConfig.Type)
-        , queryLogFile = None Text
-        , enforcedSampleLimit = None Natural
-        , allowOverlappingBlocks = None Bool
-        }
+      { podMetadata = None EmbeddedObjectMetadata.Type
+      , serviceMonitorSelector = None Kubernetes.LabelSelector.Type
+      , serviceMonitorNamespaceSelector = None Kubernetes.LabelSelector.Type
+      , podMonitorSelector = None Kubernetes.LabelSelector.Type
+      , podMonitorNamespaceSelector = None Kubernetes.LabelSelector.Type
+      , probeSelector = None Kubernetes.LabelSelector.Type
+      , probeNamespaceSelector = None Kubernetes.LabelSelector.Type
+      , version = None Text
+      , paused = None Bool
+      , image = None Text
+      , imagePullSecrets = None (List Kubernetes.LocalObjectReference.Type)
+      , replicas = None Natural
+      , replicaExternalLabelName = None Text
+      , prometheusExternalLabelName = None Text
+      , retention = None Text
+      , retentionSize = None Text
+      , disableCompaction = None Bool
+      , walCompression = None Bool
+      , logLevel = None Text
+      , logFormat = None Text
+      , scrapeInterval = None Text
+      , scrapeTimeout = None Text
+      , evaluationInterval = None Text
+      , rules = None Rules.Type
+      , externalLabels = None (Map Text Text)
+      , enableAdminAPI = None Bool
+      , externalUrl = None Text
+      , routePrefix = None Text
+      , query = None QuerySpec.Type
+      , storage = None StorageSpec.Type
+      , volumes = None (List Kubernetes.Volume.Type)
+      , volumeMounts = None (List Kubernetes.VolumeMount.Type)
+      , ruleSelector = None Kubernetes.LabelSelector.Type
+      , ruleNamespaceSelector = None Kubernetes.LabelSelector.Type
+      , alerting = None AlertingSpec.Type
+      , resources = None Kubernetes.ResourceRequirements.Type
+      , nodeSelector = None (Map Text Text)
+      , serviceAccountName = None Text
+      , secrets = None (List Text)
+      , configMaps = None (List Text)
+      , affinity = None Kubernetes.Affinity.Type
+      , tolerations = None (List Kubernetes.Toleration.Type)
+      , remoteWrite = None (List RemoteWriteSpec.Type)
+      , remoteRead = None (List RemoteReadSpec.Type)
+      , securityContext = None Kubernetes.PodSecurityContext.Type
+      , listenLocal = None Bool
+      , containers = None (List Kubernetes.Container.Type)
+      , initContainers = None (List Kubernetes.Container.Type)
+      , additionalScrapeConfigs = None Kubernetes.SecretKeySelector.Type
+      , additionalAlertRelabelConfigs = None Kubernetes.SecretKeySelector.Type
+      , additionalAlertManagerConfigs = None Kubernetes.SecretKeySelector.Type
+      , apiserverConfig = None APIServerConfig.Type
+      , thanos = None ThanosSpec.Type
+      , priorityClassName = None Text
+      , portName = None Text
+      , arbitraryFSAccessThroughSMs =
+          None ArbitraryFSAccessThroughSMsConfig.Type
+      , overrideHonorLabels = None Bool
+      , overrideHonorTimestamps = None Bool
+      , ignoreNamespaceSelectors = None Bool
+      , enforcedNamespaceLabel = None Text
+      , prometheusRulesExcludedFromEnforce =
+          None (List PrometheusRuleExcludeConfig.Type)
+      , queryLogFile = None Text
+      , enforcedSampleLimit = None Natural
+      , allowOverlappingBlocks = None Bool
+      }
     }
