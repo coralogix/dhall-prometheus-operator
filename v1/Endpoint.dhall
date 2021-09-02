@@ -60,7 +60,7 @@ let test =
       , targetPort =
           Endpoint.Union.TargetPort
             Endpoint.TargetPort::{
-            , targetPort = Kubernetes.IntOrString.Int 8080
+            , targetPort = Kubernetes.IntOrString.Int +8080
             }
       }
 
