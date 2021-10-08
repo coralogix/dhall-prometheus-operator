@@ -19,9 +19,9 @@ https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v8.0.0/pac
 ## Example Usage
 ### Example ServiceMonitor
 ```dhall
-let Kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/v6.0.0/package.dhall sha256:ebc5f0c5f57d410412c2b7cbb64d0883be648eafc094f0c3e10dba4e6bd46ed4
+let Kubernetes = https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/v6.0.0/package.dhall sha256:532e110f424ea8a9f960a13b2ca54779ddcac5d5aa531f86d82f41f8f18d7ef1
 
-let PrometheusOperator = (https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v8.0.0/package.dhall sha256:ebc5f0c5f57d410412c2b7cbb64d0883be648eafc094f0c3e10dba4e6bd46ed4
+let PrometheusOperator = (https://raw.githubusercontent.com/coralogix/dhall-prometheus-operator/v8.0.0/package.dhall sha256:ebc5f0c5f57d410412c2b7cbb64d0883be648eafc094f0c3e10dba4e6bd46ed4).v1
 
 in PrometheusOperator.ServiceMonitor::{
    , metadata =
@@ -34,7 +34,7 @@ in PrometheusOperator.ServiceMonitor::{
                 (toMap { app = "example" })
              }
        , endpoints =
-         [ PrometheusOperator.Endpoint.Union.TargetPort
+         Some [ PrometheusOperator.Endpoint.Union.TargetPort
              PrometheusOperator.Endpoint.TargetPort::{
              , targetPort = Kubernetes.IntOrString.String "example"
              , interval = Some "60s"
