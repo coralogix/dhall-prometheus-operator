@@ -36,7 +36,7 @@ in PrometheusOperator.ServiceMonitor::{
        , endpoints =
          Some [ PrometheusOperator.Endpoint.Union.TargetPort
              PrometheusOperator.Endpoint.TargetPort::{
-             , targetPort = Kubernetes.IntOrString.String "example"
+             , targetPort = Kubernetes.NatOrString.String "example"
              , interval = Some "60s"
              , scrapeTimeout = Some "40s"
              }
